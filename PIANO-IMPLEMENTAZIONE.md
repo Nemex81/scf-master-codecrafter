@@ -3,7 +3,7 @@
 > **Destinatario**: Copilot in Agent mode  
 > **Data**: 2026-04-10  
 > **Stato**: scaffold pronto, implementazione da completare  
-> **Workspace multi-root richiesto**: `scf-master-codecrafter`, `spark-framework-engine`, `scf-pycode-crafter`
+> **Workspace multi-root richiesto**: `scf-master-codecrafter`, `spark-framework-engine`, `scf-pycode-crafter`, `tabboz-simulator-202` (sola lettura — temporaneo)
 
 ---
 
@@ -11,10 +11,30 @@
 
 Questo repo è il **layer base** del SPARK Code Framework. Ogni plugin linguaggio-specifico dichiara questo package come dipendenza. Il motore MCP (`spark-framework-engine`) deve essere aggiornato alla v1.5.0 prima che questo package sia installabile (vedi Fase A).
 
-I tre repo coinvolti nel workspace:
+I repo coinvolti nel workspace:
 - `spark-framework-engine` — motore MCP (da patchare a v1.5.0)
 - `scf-master-codecrafter` — questo repo (da popolare)
 - `scf-pycode-crafter` — plugin Python (da refactorare a v2.0.0)
+- `tabboz-simulator-202` — **fonte temporanea di sola lettura** (vedi sezione sotto)
+
+---
+
+## Workspace Multi-Root — Ruolo di Ogni Repo
+
+| Repo | Ruolo nel workspace | Permessi |
+|---|---|---|
+| `spark-framework-engine` | Motore MCP — da patchare a v1.5.0 | Lettura + Scrittura |
+| `scf-master-codecrafter` | Layer base SCF — da popolare | Lettura + Scrittura |
+| `scf-pycode-crafter` | Plugin Python — da refactorare a v2.0.0 | Lettura + Scrittura |
+| `tabboz-simulator-202` | **Fonte temporanea di sola lettura.** Presente nel workspace SOLO per estrarre i componenti del framework nella versione più evoluta. **NON scrivere, NON committare, NON modificare nulla in questo repo.** Verrà rimosso dal workspace dopo il completamento di questo piano. | Solo lettura |
+
+### Priorità delle Fonti per la Fase B
+
+Per ogni file da creare nel master, la fonte si sceglie in questo ordine:
+
+1. **Fonte primaria**: il file corrispondente in `tabboz-simulator-202/.github/` — è la versione più matura e battle-tested del framework (v1.11.0, 14 agenti, iterata sul campo)
+2. **Fonte secondaria**: il file corrispondente in `scf-pycode-crafter/.github/` — usare solo se il file non esiste in tabboz
+3. **Da zero**: solo per `Agent-Research.md`, `framework-index/SKILL.md` e `framework-scope-guard.skill.md` — non hanno precedenti in nessun repo
 
 ---
 
@@ -200,10 +220,34 @@ Nuova sezione in testa al file:
 ## Fase B — Popolare `scf-master-codecrafter`
 
 Tutti i file elencati in `package-manifest.json` devono essere creati.
-Riferimento fonti: leggere i file corrispondenti in `scf-pycode-crafter` come base,
-adattare rimuovendo tutto ciò che è Python-specific.
+
+### Mappa Fonti Tabboz → Master
+
+Per ogni file del master, leggere prima la fonte primaria in `tabboz-simulator-202`, poi il fallback in `scf-pycode-crafter`. **Non scrivere mai nulla in `tabboz-simulator-202`.**
+
+| File da creare nel master | Fonte primaria (tabboz) | Cosa rimuovere/adattare |
+|---|---|---|
+| `Agent-Orchestrator.md` | `.github/agents/Agent-Orchestrator.md` (11.5 KB) | Nulla da rimuovere — già trasversale. Aggiungere frontmatter: `execution_mode`, `confidence_threshold`, `checkpoints`, `runtime_state_tool`, `runtime_update_tool`. Impostare `layer: master`, `version: 2.0.0` |
+| `Agent-Git.md` | `.github/agents/Agent-Git.md` (11.6 KB) | Rimuovere riferimenti a comandi Python-specific se presenti |
+| `Agent-Helper.md` | `.github/agents/Agent-Helper.md` | Rimuovere riferimenti a stack Python |
+| `Agent-Release.md` | `.github/agents/Agent-Release.md` | Rimuovere step Python-specific (es. `pip`, `pypi`, `wheel`) |
+| `Agent-FrameworkDocs.md` | `.github/agents/Agent-FrameworkDocs.md` | Nulla — già trasversale |
+| `Agent-Welcome.md` | `.github/agents/Agent-Welcome.md` (16.5 KB) | Rimuovere istruzioni setup Python-specific, generalizzare il linguaggio |
+| `Agent-CodeRouter.md` (dispatcher) | `.github/agents/Agent-CodeRouter.md` | Aggiungere frontmatter `role: dispatcher`, `delegates_to_capabilities`, `fallback: Agent-Research` |
+| `Agent-Analyze.md` (dispatcher) | `.github/agents/Agent-Analyze.md` | Aggiungere frontmatter dispatcher, rimuovere riferimenti Python-specific |
+| `Agent-Design.md` (dispatcher) | `.github/agents/Agent-Design.md` | Aggiungere frontmatter dispatcher |
+| `Agent-Plan.md` (dispatcher) | `.github/agents/Agent-Plan.md` | Aggiungere frontmatter dispatcher |
+| `Agent-Docs.md` (dispatcher) | `.github/agents/Agent-Docs.md` | Aggiungere frontmatter dispatcher, rimuovere riferimenti `pytest`/`ruff`/`mypy` |
+| `Agent-CodeUI.md` (dispatcher) | `.github/agents/Agent-CodeUI.md` | Aggiungere frontmatter dispatcher |
+| `copilot-instructions.md` | `.github/copilot-instructions.md` di tabboz | Rimuovere tutto ciò che cita Python, pytest, ruff, mypy, type hints |
+| `project-profile.md` | `.github/project-profile.md` di tabboz | Azzerare: `active_plugins: []`, `framework_version: ""`, `initialized: false` — è un template |
+| `AGENTS.md` | `.github/AGENTS.md` di tabboz | Rimuovere agenti Python-specific; aggiungere sezione "Plugin Agents" vuota e sezione "MCP Runtime Tools" |
+
+> **Nota**: `Agent-Validate.md` e `Agent-Code.md` di tabboz **NON vanno nel master** — sono esecutori linguaggio-specifico. Restano come base per `py-Agent-Code.md` e `py-Agent-Validate.md` in `scf-pycode-crafter` (Fase C).
 
 ### B1. File di progetto root
+
+**Fonte primaria**: `tabboz-simulator-202/.github/`
 
 **`.github/project-profile.md`** — profilo neutro, senza language:
 ```yaml
@@ -217,7 +261,7 @@ framework_version: ""
 Corpo: istruzioni per compilare il profilo al setup.
 
 **`.github/copilot-instructions.md`** — istruzioni base framework, NON Python-specific.
-Base: leggere `.github/copilot-instructions.md` in `scf-pycode-crafter`, rimuovere
+Fonte primaria: `.github/copilot-instructions.md` in `tabboz-simulator-202`, rimuovere
 tutto ciò che fa riferimento a Python, pytest, ruff, mypy, type hints.
 
 **`.github/AGENTS.md`** — indice master. Struttura:
@@ -237,6 +281,9 @@ tutto ciò che fa riferimento a Python, pytest, ruff, mypy, type hints.
 ```
 
 ### B2. Agenti esecutori (7 file in `.github/agents/`)
+
+**Fonte primaria**: `tabboz-simulator-202/.github/agents/` — vedi tabella mappatura sopra.
+**Fallback**: `scf-pycode-crafter/.github/agents/` se il file non esiste in tabboz.
 
 Frontmatter obbligatorio per tutti gli agenti esecutori:
 ```yaml
@@ -266,15 +313,15 @@ runtime_update_tool: scf_update_runtime_state
 ```
 Corpo: flusso E2E con loop autonomo, gestione confidence, retry max 2,
 post-step analysis, riduzione checkpoint a 3.
-Base: leggere `py-Agent-Orchestrator.md` in `scf-pycode-crafter`, promuovere
-a versione trasversale e aggiungere execution_mode + confidence system.
+Fonte primaria: `.github/agents/Agent-Orchestrator.md` in `tabboz-simulator-202` (11.5 KB — versione completa).
+Aggiungere i nuovi campi frontmatter; il corpo è già trasversale e non richiede modifiche sostanziali.
 
-**`Agent-Git.md`** — base: `py-Agent-Git.md` in pycode-crafter, rimuovere Python-specific.
-**`Agent-Helper.md`** — base: `py-Agent-Helper.md`, rimuovere Python-specific.
-**`Agent-Release.md`** — base: `py-Agent-Release.md`, rimuovere Python-specific.
-**`Agent-FrameworkDocs.md`** — gestisce FRAMEWORK_CHANGELOG.md e docs del framework stesso.
-**`Agent-Welcome.md`** — onboarding progetto, istruzioni primo setup.
-**`Agent-Research.md`** — NUOVO, nessuna base in pycode:
+**`Agent-Git.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Git.md` (11.6 KB).
+**`Agent-Helper.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Helper.md`.
+**`Agent-Release.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Release.md`, rimuovere step Python-specific.
+**`Agent-FrameworkDocs.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-FrameworkDocs.md`.
+**`Agent-Welcome.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Welcome.md` (16.5 KB), generalizzare sezioni Python-specific.
+**`Agent-Research.md`** — NUOVO, nessuna base in nessun repo esistente, creare da zero:
 ```yaml
 ---
 spark: true
@@ -291,6 +338,9 @@ in `research-cache/{language}-{task-type}.md`. Dichiara sempre che l'output
 è fallback dinamico, non competenza nativa. Non è user-facing.
 
 ### B3. Agenti dispatcher (6 file in `.github/agents/`)
+
+**Fonte primaria**: `tabboz-simulator-202/.github/agents/` — vedi tabella mappatura sopra.
+**Fallback**: `scf-pycode-crafter/.github/agents/` se il file non esiste in tabboz.
 
 Frontmatter obbligatorio:
 ```yaml
@@ -319,25 +369,24 @@ Capabilities per ciascun dispatcher:
 - `Agent-Docs` — `delegates_to_capabilities: [docs]`
 - `Agent-CodeUI` — `delegates_to_capabilities: [code-ui, ui]`
 
-Base per tutti: leggere i corrispondenti `py-Agent-*.md` in pycode-crafter,
-rimuovere Python-specific, aggiungere meccanismo dispatcher.
-
 ### B4. Instructions (6 file in `.github/instructions/`)
 
-Base: leggere i corrispondenti file in `scf-pycode-crafter/.github/instructions/`.
+**Fonte primaria**: `tabboz-simulator-202/.github/instructions/`.
+**Fallback**: `scf-pycode-crafter/.github/instructions/` se il file non esiste in tabboz.
 Rimuovere tutto ciò che è Python-specific da ogni file.
 File da non portare nel master: `python.instructions.md`, `tests.instructions.md`,
 `project-reset.instructions.md` (valutare se generica, se sì portarla).
 
 ### B5. Skill (24+ file in `.github/skills/`)
 
-Base per tutte le skill trasversali: leggere i corrispondenti file in `scf-pycode-crafter`.
-Rimuovere riferimenti Python-specific.
-File da rimuovere se Python-specific: `error-recovery/reference/errors-python.md`
-(resta nel plugin Python).
+**Fonte primaria**: `tabboz-simulator-202/.github/skills/`.
+**Fallback**: `scf-pycode-crafter/.github/skills/` se la skill non esiste in tabboz.
+Rimuovere riferimenti Python-specific da ogni file migrato.
+File da non portare nel master: `error-recovery/reference/errors-python.md`
+(resta esclusivamente nel plugin Python).
 
 Skill `framework-index/SKILL.md` e `framework-scope-guard.skill.md` — NUOVE,
-non presenti in pycode-crafter, da creare da zero:
+non presenti in nessun repo esistente, da creare da zero:
 - `framework-index`: catalogo navigabile di tutti gli agenti e skill del framework installato
 - `framework-scope-guard`: protezione perimetro framework, evita modifiche fuori scope
 
@@ -369,7 +418,7 @@ non presenti in pycode-crafter, da creare da zero:
 - Prima release del layer master SCF
 - 7 agenti esecutori: Orchestrator v2.0, Git, Helper, Release, FrameworkDocs, Welcome, Research
 - 6 agenti dispatcher con meccanismo fallback via Agent-Research
-- 24 skill trasversali migrate da scf-pycode-crafter
+- 24 skill trasversali migrate da tabboz-simulator-202 e scf-pycode-crafter
 - 6 instruction files trasversali
 - Runtime state orchestratore: .github/runtime/orchestrator-state.json
 - Supporto pattern multi-plugin M1: AGENTS-{plugin-id}.md per plugin
@@ -515,3 +564,4 @@ Prima di considerare il lavoro completo, verificare:
 - [ ] `registry.json` contiene `scf-master-codecrafter` e `scf-pycode-crafter` v2.0.0
 - [ ] CHANGELOG aggiornato in tutti e tre i repo
 - [ ] NON esiste `py-Agent-Orchestrator.md` in `scf-pycode-crafter` (Opzione A)
+- [ ] NON è stato scritto nulla in `tabboz-simulator-202`
