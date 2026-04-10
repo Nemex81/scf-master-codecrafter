@@ -68,7 +68,6 @@
     ".github/skills/validate-accessibility/SKILL.md",
     ".github/skills/validate-accessibility/checklists/nvda-checklist.md",
     ".github/skills/validate-accessibility/checklists/keyboard-nav-checklist.md",
-    ".github/skills/verbosity.skill.md",
-    ".github/runtime/orchestrator-state.json"
+    ".github/skills/verbosity.skill.md"
   ]
 }

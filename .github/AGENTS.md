@@ -12,7 +12,7 @@ spark: true
 - Agent-Release — executor — release-coordination, semver, packaging guidance
 - Agent-FrameworkDocs — executor — framework-docs, changelog, AGENTS index
 - Agent-Welcome — executor — setup, project-profile, onboarding
-- Agent-Research — executor — fallback research, unknown-stack briefing
+- Agent-Research — support/internal — fallback research, unknown-stack briefing
 - Agent-CodeRouter — dispatcher — code, code-ui, routing
 - Agent-Analyze — dispatcher — analyze
 - Agent-Design — dispatcher — design
@@ -25,7 +25,11 @@ spark: true
 Questa sezione viene popolata dai plugin installati tramite file `AGENTS-{plugin-id}.md`.
 Il motore aggrega i file disponibili tramite `scf://agents-index`.
 
-## MCP Runtime Tools (engine v1.5.0+)
+## MCP Runtime Tools (engine v1.5.0+ — patch non ancora applicata)
+
+> ⚠️ Questa sezione è anticipatoria. I tool seguenti saranno disponibili dopo
+> l'applicazione della patch Step 2 a `spark-framework-engine.py`.
+> Stato attuale del motore: v1.4.2.
 
 - `scf_get_runtime_state()` — legge lo stato runtime dell'orchestratore
 - `scf_update_runtime_state(patch)` — aggiorna lo stato runtime dell'orchestratore
