@@ -31,3 +31,19 @@ Il motore aggrega i file disponibili tramite `scf://agents-index`.
 - `scf_update_runtime_state(patch)` — aggiorna lo stato runtime dell'orchestratore
 - `scf://runtime-state` — resource JSON con lo stato runtime corrente
 - `scf://agents-index` — aggrega `AGENTS.md` e `AGENTS-{plugin-id}.md`
+
+***
+
+## Agenti di Supporto Interno
+
+Questi agenti non fanno parte del workflow principale ANALYZE→RELEASE.
+Vengono invocati automaticamente da altri agenti in condizioni specifiche.
+L'utente non li chiama direttamente.
+
+### Agent-Research
+
+- **Ruolo**: fallback per linguaggi senza plugin SCF specializzato
+- **Visibilità**: internal
+- **Invocato da**: Agent-Analyze, Agent-Design, Agent-Plan, Agent-CodeUI, Agent-Docs
+- **Produce**: context brief in `.github/runtime/research-cache/{language}-{task-type}.md`
+- **Limite**: non sostituisce un plugin testato — fallback trasparente dichiarato
