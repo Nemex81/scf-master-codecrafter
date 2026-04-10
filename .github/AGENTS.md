@@ -25,13 +25,11 @@ spark: true
 Questa sezione viene popolata dai plugin installati tramite file `AGENTS-{plugin-id}.md`.
 Il motore aggrega i file disponibili tramite `scf://agents-index`.
 
-## MCP Runtime Tools (engine v1.5.0+ — patch non ancora applicata)
+## MCP Runtime Tools (engine v1.5.1 — operativi da v1.5.0)
 
-> ⚠️ Questa sezione è anticipatoria. I tool seguenti saranno disponibili dopo
-> l'applicazione della patch Step 2 a `spark-framework-engine.py`.
-> Stato attuale del motore: v1.4.2.
+I tool seguenti sono disponibili e operativi nel motore corrente (v1.5.1).
 
-- `scf_get_runtime_state()` — legge lo stato runtime dell'orchestratore
+- `scf_get_runtime_state()` — legge `.github/runtime/orchestrator-state.json`
 - `scf_update_runtime_state(patch)` — aggiorna lo stato runtime dell'orchestratore
 - `scf://runtime-state` — resource JSON con lo stato runtime corrente
 - `scf://agents-index` — aggrega `AGENTS.md` e `AGENTS-{plugin-id}.md`
