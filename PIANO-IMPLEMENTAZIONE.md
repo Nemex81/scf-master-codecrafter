@@ -38,6 +38,27 @@ Per ogni file da creare nel master, la fonte si sceglie in questo ordine:
 
 ---
 
+## Esito Validazione Preliminare
+
+**Esito complessivo:** validazione parziale, piano correggibile e implementabile.
+
+### Discrepanze verificate nel workspace
+
+1. `scf-master-codecrafter` non contiene ancora `.github/` né `docs/`: la Fase B va eseguita come **bootstrap completo** guidato da `package-manifest.json`, non come semplice adattamento incrementale.
+2. La regola "tabboz prima, py fallback" resta valida solo a livello **file-specifico**: diverse skill in `tabboz-simulator-202` esistono solo nel formato flat legacy (`*.skill.md`), mentre il target del master richiede in più punti il formato cartella standard già presente in `scf-pycode-crafter` (`docs-manager/`, `clean-architecture/`, `error-recovery/`, `framework-query/`, `project-doc-bootstrap/`, `validate-accessibility/`, `changelog-entry/`).
+3. `scf-pycode-crafter` è ancora alla versione `1.2.1` con `min_engine_version: 1.4.2`, mentre `scf-registry` pubblica ancora `engine_min_version: 1.3.0`: le Fasi C e D devono essere trattate come upgrade coordinato a `2.0.0` / `1.5.0`.
+4. In `scf-pycode-crafter` vanno rimossi solo i componenti trasversali migrati al master. Restano fuori dallo scope di rimozione i file Python-specific (`python.instructions.md`, `tests.instructions.md`, `error-recovery/reference/errors-python.md`) e il workflow `.github/workflows/notify-engine.yml`.
+5. La fonte canonica per l'inventario dei file del master è già disponibile in `scf-master-codecrafter/package-manifest.json`: ogni creazione della Fase B deve essere verificata contro quel manifest, non solo contro l'elenco descrittivo del piano.
+
+### Strategia correttiva obbligatoria
+
+- Eseguire la Fase B partendo dal `package-manifest.json` del master come checklist canonica dei file da creare.
+- Selezionare la sorgente per ogni file in quest'ordine: tabboz se il file esiste in formato compatibile, pycode-crafter se il target richiede il formato cartella standard o una versione già normalizzata, creazione da zero solo per i tre file esplicitamente nuovi.
+- Creare `docs/TODO.md` prima dell'implementazione e aggiornare le checklist al termine di ogni fase A, B, C, D.
+- Validare ogni fase prima di procedere alla successiva; se una validazione fallisce, aggiornare prima il piano e solo dopo riprendere l'implementazione.
+
+---
+
 ## Vincoli Invarianti
 
 1. Tutti i file markdown SCF devono avere `spark: true` nel frontmatter YAML
@@ -220,10 +241,13 @@ Nuova sezione in testa al file:
 ## Fase B — Popolare `scf-master-codecrafter`
 
 Tutti i file elencati in `package-manifest.json` devono essere creati.
+Il `package-manifest.json` del master è la checklist canonica di completamento della fase.
 
 ### Mappa Fonti Tabboz → Master
 
 Per ogni file del master, leggere prima la fonte primaria in `tabboz-simulator-202`, poi il fallback in `scf-pycode-crafter`. **Non scrivere mai nulla in `tabboz-simulator-202`.**
+
+Correzione validata: per le skill nel formato cartella standard richieste dal manifest del master, usare come fonte primaria `scf-pycode-crafter/.github/skills/` se `tabboz-simulator-202` contiene solo la variante flat legacy.
 
 | File da creare nel master | Fonte primaria (tabboz) | Cosa rimuovere/adattare |
 |---|---|---|
@@ -428,6 +452,8 @@ non presenti in nessun repo esistente, da creare da zero:
 ---
 
 ## Fase C — Refactor `scf-pycode-crafter` → v2.0.0
+
+Correzione validata: il workflow `.github/workflows/notify-engine.yml` non rientra tra i file migrati al master e va preservato.
 
 ### C1. Creare `.github/AGENTS-python.md`
 
