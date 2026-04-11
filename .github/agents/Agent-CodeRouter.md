@@ -19,10 +19,10 @@ Dispatcher per richieste di implementazione.
 Prima di consultare scf://agents-index, classifica la richiesta in ingresso:
 
 - Se la richiesta riguarda logica applicativa, algoritmi, strutture dati,
-	backend, API, persistenza -> tipo: code
-- Se la richiesta riguarda UI, accessibilita, componenti visivi, ARIA,
-	output leggibile da screen reader -> tipo: code-ui
-- Se la richiesta e ambigua o mista -> tipo: routing
+	backend, API, persistenza → tipo: code
+- Se la richiesta riguarda UI, accessibilità, componenti visivi, ARIA,
+	output leggibile da screen reader → tipo: code-ui
+- Se la richiesta è ambigua o mista → tipo: routing
 	(Agent-CodeRouter decide in autonomia quale capability prevalente usare)
 
 La classificazione avviene prima della ricerca nel registry.
