@@ -6,15 +6,6 @@ version: 1.0.0
 spark: true
 ---
 
-<<<<<<< HEAD
-# Python
-
-- Applica type hints a funzioni pubbliche e dati strutturati quando il contesto lo consente.
-- Preferisci `pathlib.Path`, `dataclass` e `f-string` al posto di pattern legacy equivalenti.
-- Mantieni nomi in `snake_case` per funzioni e variabili, `PascalCase` per classi, `UPPER_SNAKE_CASE` per costanti.
-- Evita refactor non richiesti e mantieni le modifiche locali e minimali.
-- Se esiste una instruction plugin piu specifica per Python, considerala prioritaria rispetto a questa baseline del layer master.
-=======
 # Instruction: Python
 
 Questa instruction si applica a tutti i file `.py` del workspace.
@@ -25,7 +16,7 @@ Questa instruction si applica a tutti i file `.py` del workspace.
 - Docstring per moduli, classi pubbliche e funzioni pubbliche
 - f-string per formattazione stringhe
 - `pathlib.Path` per operazioni su file (no `os.path`)
-- Dataclass frozen per strutture dati immutabili
+- `dataclass` per strutture dati semplici; `frozen=True` quando l'immutabilita e un requisito reale
 - Context manager per risorse (file, connessioni, lock)
 
 ## Stile
@@ -35,7 +26,7 @@ Questa instruction si applica a tutti i file `.py` del workspace.
 - Costanti in `UPPER_SNAKE_CASE`
 - Lunghezza riga max 100 caratteri
 - Import ordinati: stdlib, third-party, locale (isort/ruff)
-- `from __future__ import annotations` in testa ad ogni modulo
+- `from __future__ import annotations` quando coerente con lo stile e la compatibilita del progetto
 
 ## Errori
 
@@ -43,7 +34,7 @@ Questa instruction si applica a tutti i file `.py` del workspace.
 - Non usare `except Exception` senza motivazione documentata
 - Non sopprimere eccezioni con `pass`
 - Log degli errori via `logging` prima di ri-sollevare
-- Mai scrivere su stdout: usare `sys.stderr` o file di log (regola critica per server MCP stdio)
+- Mai scrivere su stdout in contesti MCP stdio: usare `sys.stderr` o file di log
 
 ## Architettura
 
@@ -58,4 +49,7 @@ Questa instruction si applica a tutti i file `.py` del workspace.
 - File di test: `tests/test_<nome_modulo>.py`
 - Naming: `test_<cosa>_<condizione>_<risultato_atteso>`
 - Evita mock eccessivi: testa comportamenti, non implementazioni
->>>>>>> e73957b712fad7e84edb2104424d66c29789dde1
+
+## Priorita
+
+- Se esiste una instruction plugin piu specifica per Python, considerala prioritaria rispetto a questa baseline del layer master.
