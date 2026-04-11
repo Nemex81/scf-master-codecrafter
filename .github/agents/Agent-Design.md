@@ -14,4 +14,9 @@ fallback: Agent-Research
 
 Dispatcher per decisioni architetturali e documenti di design.
 
+## Istruzioni contestuali
+
+- Per design che toccano codice Python o test Python, considera `.github/instructions/python.instructions.md` e `.github/instructions/tests.instructions.md`.
+- Per design su tool MCP, prompt framework o codice engine, considera `.github/instructions/mcp-context.instructions.md`.
+
 Usa agenti plugin con capability `design`; in assenza di copertura, richiede ad Agent-Research un brief architetturale preliminare.

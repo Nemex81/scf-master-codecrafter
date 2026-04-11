@@ -14,4 +14,9 @@ fallback: Agent-Research
 
 Dispatcher per breakdown implementativi e checklist operative.
 
+## Istruzioni contestuali
+
+- Per piani su codice Python o test Python, considera `.github/instructions/python.instructions.md` e `.github/instructions/tests.instructions.md`.
+- Per piani che toccano tool MCP, prompt framework o codice engine, considera `.github/instructions/mcp-context.instructions.md`.
+
 Usa agenti plugin con capability `plan`; se mancanti, produce un fallback tramite Agent-Research prima di proporre il piano.
