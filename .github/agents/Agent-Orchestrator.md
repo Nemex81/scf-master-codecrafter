@@ -7,9 +7,11 @@ model: ['GPT-5.4 (copilot)', 'Claude Opus 4.6 (copilot)']
 tools:
   - scf_get_runtime_state
   - scf_update_runtime_state
+  - scf_update_packages
   - scf_get_project_profile
   - scf_list_agents
   - scf_get_agent
+  - editFiles
   - readFile
   - runCommand
 layer: master
@@ -38,17 +40,101 @@ Seleziona l'agente delegato leggendo `scf://agents-index`: usa le `capabilities`
 dichiarate da ogni plugin per individuare l'agente più adatto al task corrente.
 Se la capability richiesta non è coperta da nessun plugin attivo, delega ad Agent-Research.
 
+## Session Update Check
+
+Prima di qualsiasi fase E2E, esegui un controllo update di sessione.
+
+### Gate di esecuzione
+
+1. Leggi `orchestrator-state.json` tramite `scf_get_runtime_state`.
+2. Calcola la data odierna nel formato `YYYY-MM-DD`.
+3. Il gate scatta solo se vale almeno una delle condizioni seguenti:
+  - `update_check_done` e assente;
+  - `update_check_done` e `false`;
+  - `last_update_check` e assente;
+  - `last_update_check` e diverso dalla data odierna.
+4. Se il gate non scatta: salta silenziosamente il controllo update.
+
+### Sequenza operativa
+
+Se il gate scatta:
+
+1. Leggi `.github/.scf-manifest.json`.
+2. Se il file non esiste:
+  - aggiorna lo stato runtime con `scf_update_runtime_state({ update_check_done: true, last_update_check: <oggi>, available_package_updates: 0 })`
+  - continua senza banner.
+3. Se il file e legacy (`installed_packages[]` presente e `entries[]` assente):
+  - migra il manifesto al formato canonico `entries[]` prima del check.
+4. Chiama `scf_update_packages()`.
+5. Se il report non contiene update:
+  - aggiorna lo stato runtime con `update_check_done: true`, `last_update_check: <oggi>`, `available_package_updates: 0`
+  - continua senza banner.
+6. Se esistono update disponibili:
+  - mostra una sola volta il banner di aggiornamento;
+  - aggiorna lo stato runtime con `update_check_done: true`, `last_update_check: <oggi>`, `available_package_updates: <count>`;
+  - continua con il workflow E2E senza bloccare il task.
+
+### Banner
+
+```text
+┌─────────────────────────────────────────────────────┐
+│ AGGIORNAMENTO DISPONIBILE                          │
+│ Il pacchetto [nome] ha una nuova versione:         │
+│   installata: X.Y.Z -> disponibile: A.B.C          │
+│                                                     │
+│ Digita /package-update per aggiornare ora.         │
+│ Digita /package-update --skip per ignorare.        │
+└─────────────────────────────────────────────────────┘
+```
+
+### Migrazione manifesto legacy
+
+Se `.github/.scf-manifest.json` contiene `installed_packages[]` e non contiene `entries[]`:
+
+1. Per ogni package legacy:
+  - usa `id` come `package`;
+  - usa `version` come `package_version`;
+  - se `version` manca o e vuota: interrompi con `ERRORE:` e attendi intervento manuale.
+2. Per ogni file in `files[]`:
+  - se il file manca su disco: salta la entry e registra un warning;
+  - se compare in piu package: interrompi con `ERRORE:` per conflitto di ownership;
+  - se esiste: calcola `sha256` e crea la entry canonica.
+3. Riscrivi il file nel formato canonico `schema_version: "1.0"` con `entries[]`.
+4. Procedi al check update solo se la migrazione termina senza errori critici.
+
 ## Sequenza
 
-1. Leggi `scf://runtime-state` e verifica `execution_mode`, `confidence`, `retry_count`.
-2. Leggi `.github/project-profile.md` e l'indice agenti aggregato da `scf://agents-index`.
-3. Determina la fase corrente: analyze, design, plan, code, validate, docs, release.
-4. Delega all'agente corretto con contesto completo.
-5. Dopo ogni step aggiorna lo stato runtime con `scf_update_runtime_state`.
-6. Se `confidence < 0.85`, richiedi checkpoint utente prima di continuare.
-7. Limita i retry automatici a 2 tentativi per fase.
+1. Esegui il Session Update Check.
+2. Leggi `scf://runtime-state` e verifica `execution_mode`, `confidence`, `retry_count`.
+3. Leggi `.github/project-profile.md` e l'indice agenti aggregato da `scf://agents-index`.
+4. Determina la fase corrente: analyze, design, plan, code, validate, docs, release.
+5. Delega all'agente corretto con contesto completo.
+6. Dopo ogni step aggiorna lo stato runtime con `scf_update_runtime_state`.
+7. Se `confidence < 0.85`, richiedi checkpoint utente prima di continuare.
+8. Limita i retry automatici a 2 tentativi per fase.
 
 ## Loop Autonomo
+
+  today = data odierna YYYY-MM-DD
+  runtime = scf_get_runtime_state()
+  gate_update = (
+    update_check_done assente o false
+    oppure last_update_check assente
+    oppure last_update_check != today
+  )
+
+  if gate_update:
+    leggi .github/.scf-manifest.json
+    se assente:
+       scf_update_runtime_state({ update_check_done: true, last_update_check: today, available_package_updates: 0 })
+    se legacy:
+       migra a entries[]
+    updates = scf_update_packages()
+    if updates non disponibili:
+       scf_update_runtime_state({ update_check_done: true, last_update_check: today, available_package_updates: 0 })
+    else:
+       mostra banner update una sola volta
+       scf_update_runtime_state({ update_check_done: true, last_update_check: today, available_package_updates: <count> })
 
   while task non completato:
       fase = prossima fase non completata
