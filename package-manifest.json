@@ -33,8 +33,6 @@
     ".github/instructions/mcp-context.instructions.md",
     ".github/instructions/model-policy.instructions.md",
     ".github/instructions/personality.instructions.md",
-    ".github/instructions/python.instructions.md",
-    ".github/instructions/tests.instructions.md",
     ".github/instructions/verbosity.instructions.md",
     ".github/instructions/workflow-standard.instructions.md",
     ".github/skills/accessibility-output.skill.md",

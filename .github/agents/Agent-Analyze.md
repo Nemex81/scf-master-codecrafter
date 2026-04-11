@@ -16,7 +16,6 @@ Dispatcher per analisi e discovery read-only.
 
 ## Istruzioni contestuali
 
-- Per analisi su codice Python o suite di test Python, considera `.github/instructions/python.instructions.md` e `.github/instructions/tests.instructions.md`.
 - Per analisi su tool MCP, prompt framework o codice engine, considera `.github/instructions/mcp-context.instructions.md`.
 
 Instrada verso agenti plugin che dichiarano capability `analyze`.

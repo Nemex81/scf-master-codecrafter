@@ -16,7 +16,6 @@ Dispatcher per richieste di implementazione.
 
 ## Istruzioni contestuali
 
-- Se il task instradato tocca codice Python o test Python, considera `.github/instructions/python.instructions.md` e `.github/instructions/tests.instructions.md` come baseline del layer master.
 - Se il task tocca tool MCP o codice engine, considera anche `.github/instructions/mcp-context.instructions.md`.
 
 ## Classificazione task
