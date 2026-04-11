@@ -6,6 +6,10 @@ description: Agente esclusivo per documentazione e changelog del framework sotto
 model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
 layer: master
 role: executor
+tools:
+  - readFile
+  - editFiles
+  - changes
 ---
 
 # Agent-FrameworkDocs

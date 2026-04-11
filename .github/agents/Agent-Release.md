@@ -6,6 +6,11 @@ description: Agente per versioning, checklist release e preparazione materiali d
 model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
 layer: master
 role: executor
+tools:
+  - runCommand
+  - githubRepo
+  - readFile
+  - changes
 ---
 
 # Agent-Release

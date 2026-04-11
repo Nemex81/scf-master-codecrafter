@@ -6,6 +6,10 @@ description: Agente specializzato per operazioni git autorizzate e output strutt
 model: ['GPT-5 mini (copilot)', 'GPT-5.3-Codex (copilot)']
 layer: master
 role: executor
+tools:
+  - runCommand
+  - githubRepo
+  - changes
 ---
 
 # Agent-Git
