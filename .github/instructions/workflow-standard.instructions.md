@@ -1,6 +1,7 @@
 ---
 applyTo: "**"
 name: workflow-standard
+package: scf-master-codecrafter
 version: 1.0.0
 spark: true
 ---

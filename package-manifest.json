@@ -28,6 +28,7 @@
     ".github/agents/Agent-Plan.md",
     ".github/agents/Agent-Docs.md",
     ".github/agents/Agent-CodeUI.md",
+    ".github/agents/Agent-Validate.md",
     ".github/instructions/framework-guard.instructions.md",
     ".github/instructions/git-policy.instructions.md",
     ".github/instructions/mcp-context.instructions.md",

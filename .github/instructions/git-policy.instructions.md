@@ -1,6 +1,7 @@
 ---
 applyTo: "**"
 name: git-policy
+package: scf-master-codecrafter
 version: 1.0.0
 spark: true
 ---
