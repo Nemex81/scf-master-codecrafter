@@ -2,6 +2,8 @@
 spark: true
 name: Agent-Welcome
 version: 1.0.0
+description: Agente di setup del profilo progetto e onboarding dei componenti framework.
+model: ['GPT-5 mini (copilot)']
 layer: master
 role: executor
 ---

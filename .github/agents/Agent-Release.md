@@ -2,6 +2,8 @@
 spark: true
 name: Agent-Release
 version: 1.0.0
+description: Agente per versioning, checklist release e preparazione materiali di rilascio.
+model: ['GPT-5 mini (copilot)']
 layer: master
 role: executor
 ---

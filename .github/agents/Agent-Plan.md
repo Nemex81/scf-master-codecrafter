@@ -2,6 +2,8 @@
 spark: true
 name: Agent-Plan
 version: 1.0.0
+description: Dispatcher per breakdown implementativi e checklist operative con fallback research.
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.4 (copilot)']
 layer: master
 role: dispatcher
 delegates_to_capabilities: [plan]

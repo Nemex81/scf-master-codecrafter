@@ -2,6 +2,8 @@
 spark: true
 name: Agent-Git
 version: 1.0.0
+description: Agente specializzato per operazioni git autorizzate e output strutturato orientato all'azione.
+model: ['GPT-5 mini (copilot)', 'GPT-5.3-Codex (copilot)']
 layer: master
 role: executor
 ---

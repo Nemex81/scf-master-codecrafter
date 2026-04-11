@@ -2,6 +2,16 @@
 spark: true
 name: Agent-Orchestrator
 version: 2.0.0
+description: Orchestratore autonomo del ciclo E2E. Coordina agenti, verifica gate e gestisce confidence.
+model: ['GPT-5.4 (copilot)', 'Claude Opus 4.6 (copilot)']
+tools:
+  - scf_get_runtime_state
+  - scf_update_runtime_state
+  - scf_get_project_profile
+  - scf_list_agents
+  - scf_get_agent
+  - readFile
+  - runCommand
 layer: master
 role: executor
 execution_mode: autonomous

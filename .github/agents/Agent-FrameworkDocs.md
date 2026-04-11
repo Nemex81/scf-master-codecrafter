@@ -2,6 +2,8 @@
 spark: true
 name: Agent-FrameworkDocs
 version: 1.0.0
+description: Agente esclusivo per documentazione e changelog del framework sotto .github/**.
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
 layer: master
 role: executor
 ---

@@ -2,6 +2,8 @@
 spark: true
 name: Agent-CodeRouter
 version: 1.0.0
+description: Dispatcher per implementazione. Instrada richieste code e code-ui verso agenti plugin.
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.3-Codex (copilot)']
 layer: master
 role: dispatcher
 delegates_to_capabilities: [code, code-ui, routing]
