@@ -25,14 +25,21 @@ spark: true
 Questa sezione viene popolata dai plugin installati tramite file `AGENTS-{plugin-id}.md`.
 Il motore aggrega i file disponibili tramite `scf://agents-index`.
 
-## MCP Runtime Tools (engine v1.5.1 — operativi da v1.5.0)
+## MCP Runtime Tools (engine v1.6.0 — operativi da v1.5.0)
 
-I tool seguenti sono disponibili e operativi nel motore corrente (v1.5.1).
+I tool seguenti sono disponibili e operativi nel motore corrente (v1.6.0).
+
+### Runtime State (da v1.5.0)
 
 - `scf_get_runtime_state()` — legge `.github/runtime/orchestrator-state.json`
-- `scf_update_runtime_state(patch)` — aggiorna lo stato runtime dell'orchestratore
+- `scf_update_runtime_state(patch)` — aggiorna lo stato runtime dell'orchestratore con merge parziale
 - `scf://runtime-state` — resource JSON con lo stato runtime corrente
 - `scf://agents-index` — aggrega `AGENTS.md` e `AGENTS-{plugin-id}.md`
+
+### Package Management (da v1.6.0)
+
+- `scf_check_updates()` — restituisce solo i pacchetti installati con aggiornamento disponibile
+- `scf_update_package(package_id)` — aggiorna un singolo pacchetto preservando i file modificati dall'utente
 
 ***
 
