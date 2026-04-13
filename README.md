@@ -18,7 +18,7 @@ Ogni plugin linguaggio-specifico (es. `scf-pycode-crafter` per Python) dichiara 
 
 ## Architettura
 
-```
+```text
 scf-master-codecrafter (questo package)
 ├── Agenti esecutori (7): Orchestrator, Git, Helper, Release, FrameworkDocs, Welcome, Research
 ├── Agenti dispatcher (6): CodeRouter, Analyze, Design, Plan, Docs, CodeUI
@@ -34,12 +34,12 @@ plugin linguaggio (es. scf-pycode-crafter)
 
 ## Requisiti
 
-- **SPARK Framework Engine** ≥ `1.5.0`
+- **SPARK Framework Engine** ≥ `1.9.0`
 - **Python** ≥ 3.10 (per il motore MCP)
 
 ## Installazione
 
-```
+```python
 scf_install_package("scf-master-codecrafter")
 ```
 
@@ -47,9 +47,9 @@ Se stai installando un plugin linguaggio-specifico, installa prima questo packag
 
 ## Plugin compatibili
 
-| Package | Versione | Linguaggio |
-|---|---|---|
-| `scf-pycode-crafter` | ≥ 2.0.0 | Python |
+| Package              | Versione | Linguaggio |
+| -------------------- | -------- | ---------- |
+| `scf-pycode-crafter` | ≥ 2.0.0  | Python     |
 
 ## Maintainer
 

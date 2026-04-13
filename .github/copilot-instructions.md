@@ -21,7 +21,7 @@ riutilizzabili da tutti i plugin linguaggio-specifici.
 
 ## Runtime MCP richiesto
 
-Questo layer richiede `spark-framework-engine >= 1.5.0` per usare:
+Questo layer richiede `spark-framework-engine >= 1.9.0`; i tool e le resource runtime seguenti sono stati introdotti a partire da `1.5.0`:
 - `scf_get_runtime_state()`
 - `scf_update_runtime_state(patch)`
 - `scf://runtime-state`
