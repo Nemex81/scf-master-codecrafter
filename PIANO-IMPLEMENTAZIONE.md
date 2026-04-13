@@ -524,7 +524,7 @@ File da eliminare dal repo `scf-pycode-crafter` (già posseduti dal master):
   "display_name": "SCF Python Code Crafter",
   "description": "Agenti, skill e istruzioni specializzati per lo sviluppo Python. Richiede scf-master-codecrafter.",
   "author": "Nemex81",
-  "min_engine_version": "1.5.0",
+    "min_engine_version": "1.9.0",
   "dependencies": ["scf-master-codecrafter"],
   "conflicts": [],
   "file_ownership_policy": "error",
@@ -560,14 +560,14 @@ Aggiungere nel array `packages`:
   "latest_version": "1.0.0",
   "status": "stable",
   "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
-  "engine_min_version": "1.5.0",
+    "engine_min_version": "1.9.0",
   "tags": ["master", "orchestrator", "dispatcher", "base"]
 }
 ```
 
 Aggiornare entry esistente `scf-pycode-crafter`:
 - `latest_version`: `"1.2.1"` → `"2.0.0"`
-- Aggiungere `"engine_min_version": "1.5.0"`
+- Aggiungere `"engine_min_version": "1.9.0"`
 
 ---
 
