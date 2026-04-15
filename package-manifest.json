@@ -1,11 +1,11 @@
 {
   "schema_version": "2.0",
   "package": "scf-master-codecrafter",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "display_name": "SCF Master CodeCrafter",
   "description": "Plugin CORE-CRAFT per il master-layer SCF. Fornisce design, code routing, code UI e contesto MCP sopra spark-base.",
   "author": "Nemex81",
-  "min_engine_version": "1.9.0",
+  "min_engine_version": "2.1.0",
   "dependencies": ["spark-base"],
   "conflicts": [],
   "file_ownership_policy": "error",
@@ -13,6 +13,7 @@
   "files": [
     ".github/AGENTS-master.md",
     ".github/changelogs/scf-master-codecrafter.md",
+    ".github/agents/Agent-Code.md",
     ".github/agents/Agent-Design.md",
     ".github/agents/Agent-CodeRouter.md",
     ".github/agents/Agent-CodeUI.md",

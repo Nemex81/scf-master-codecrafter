@@ -36,6 +36,6 @@ Il tipo classificato determina quale capability cercare in scf://agents-index.
 
 1. Leggi `.github/project-profile.md`.
 2. Leggi l'indice agenti via `scf://agents-index`.
-3. Cerca un agente plugin con capability `code`, `code-ui` o `routing`.
-4. Se trovato, delega con contesto completo.
-5. Se assente, delega ad Agent-Research e usa il brief come supporto.
+3. Cerca prima un agente plugin con capability `code`, `code-ui` o `routing`.
+4. Se nessun plugin copre `code`, usa `Agent-Code` come executor generico del layer master.
+5. Usa `Agent-Research` solo quando mancano competenze implementative sufficienti o serve un brief esterno aggiuntivo.
