@@ -1,6 +1,13 @@
 ---
-agent: agent
 description: Aggiunge una voce al FRAMEWORK_CHANGELOG.md sezione [Unreleased].
+scf_protected: false
+scf_file_role: "prompt"
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # Framework Changelog Update

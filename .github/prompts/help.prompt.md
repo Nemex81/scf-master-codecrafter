@@ -1,7 +1,13 @@
 ---
-name: Help Agente
 description: >
-  Spiega come funziona un agente specifico del framework.
+scf_protected: false
+scf_file_role: "prompt"
+name: Help Agente
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Spiega come funziona l'agente ${input:Nome agente (es: Agent-Code, Agent-Design...)}.

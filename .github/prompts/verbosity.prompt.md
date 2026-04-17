@@ -1,10 +1,14 @@
 ---
-agent: agent
 description: >
-  Modifica il livello di verbosita comunicativa globale degli agenti
-  aggiornando il campo verbosity in project-profile.md.
-  Per override temporaneo di sessione non usare questo prompt:
-  dichiara il livello desiderato direttamente in chat.
+scf_protected: false
+scf_file_role: "prompt"
+scf_merge_priority: 20
+Per override temporaneo di sessione non usare questo prompt: 
+scf_version: "2.1.0"
+scf_merge_strategy: "replace"
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # Verbosity

@@ -1,15 +1,18 @@
 ---
-spark: true
+scf_merge_strategy: "replace"
 name: Agent-Git
+scf_protected: false
+scf_owner: "scf-master-codecrafter"
+tools: 
 version: 1.0.0
-description: Agente specializzato per operazioni git autorizzate e output strutturato orientato all'azione.
-model: ['GPT-5 mini (copilot)', 'GPT-5.3-Codex (copilot)']
+scf_version: "2.1.0"
+scf_file_role: "agent"
 layer: master
+scf_merge_priority: 20
 role: executor
-tools:
-  - runCommand
-  - githubRepo
-  - changes
+spark: true
+model: ['GPT-5 mini (copilot)', 'GPT-5.3-Codex (copilot)']
+description: Agente specializzato per operazioni git autorizzate e output strutturato orientato all'azione.
 ---
 
 # Agent-Git

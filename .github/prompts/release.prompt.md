@@ -1,7 +1,13 @@
 ---
-name: Release
 description: >
-  Avvia Agent-Release per versioning, build e coordinamento release.
+scf_protected: false
+scf_file_role: "prompt"
+name: Release
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Avvia Agent-Release per la versione ${input:Versione da rilasciare (es: v3.6.0)}.

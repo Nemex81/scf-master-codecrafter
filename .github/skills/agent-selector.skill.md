@@ -1,7 +1,13 @@
 ---
-spark: true
-name: agent-selector
 description: Seleziona l'agente corretto in base a task, capability e plugin attivi.
+scf_protected: false
+scf_file_role: "skill"
+name: agent-selector
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # agent-selector

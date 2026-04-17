@@ -1,12 +1,18 @@
 ---
+scf_owner: "scf-master-codecrafter"
 name: Agent-Research
-description: Agente di fallback per ricerca linguaggio-dominio e best practice sintetizzate.
-model: ['GPT-5.3-mini (copilot)', 'Claude Haiku 4.6 (copilot)']
-role: support
-visibility: internal
-invoked_by: [Agent-Analyze, Agent-Design, Agent-Plan, Agent-CodeUI, Agent-Docs]
+scf_protected: false
 capabilities: [language-research, best-practice-synthesis, knowledge-cache]
-scf_version: "1.1"
+role: support
+scf_version: "2.1.0"
+scf_file_role: "agent"
+visibility: internal
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+invoked_by: [Agent-Analyze, Agent-Design, Agent-Plan, Agent-CodeUI, Agent-Docs]
+spark: true
+model: ['GPT-5.3-mini (copilot)', 'Claude Haiku 4.6 (copilot)']
+description: Agente di fallback per ricerca linguaggio-dominio e best practice sintetizzate.
 ---
 
 # Agent-Research

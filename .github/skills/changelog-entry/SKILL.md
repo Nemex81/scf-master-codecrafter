@@ -1,7 +1,13 @@
 ---
-spark: true
-name: changelog-entry
 description: Genera voci changelog coerenti con Keep a Changelog.
+scf_protected: false
+scf_file_role: "skill"
+name: changelog-entry
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # changelog-entry

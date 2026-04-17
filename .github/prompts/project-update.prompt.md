@@ -1,13 +1,15 @@
 ---
-agent: agent
-model:
-  - GPT-5 mini (copilot)
-  - GPT-5 mini (copilot)
 description: >
-  Aggiorna uno o più campi del profilo progetto.
-  Se non specifichi cosa aggiornare, Agent-Welcome
-  mostra un help con esempi d'uso.
+model: 
 argument-hint: "update_request — Cosa vuoi aggiornare nel profilo progetto? (opzionale — lascia vuoto per vedere il help)"
+scf_file_role: "prompt"
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+scf_protected: false
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # Project Update — Aggiornamento Profilo Progetto

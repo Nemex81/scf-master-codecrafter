@@ -1,7 +1,13 @@
 ---
-name: Start / Riprendi Codifica
 description: >
-  Riprende la codifica dal primo task non completato in docs/TODO.md.
+scf_protected: false
+scf_file_role: "prompt"
+name: Start / Riprendi Codifica
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Leggi il file docs/TODO.md corrente.

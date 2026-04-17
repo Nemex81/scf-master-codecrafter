@@ -1,8 +1,13 @@
 ---
-name: Init Task
 description: >
-  Avvia un nuovo task nel framework. Analizza la descrizione
-  e suggerisce l'agente appropriato tra i 7 disponibili.
+scf_protected: false
+scf_file_role: "prompt"
+name: Init Task
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Analizza questa descrizione di task e suggerisci l'agente appropriato:

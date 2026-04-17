@@ -1,28 +1,161 @@
 {
-  "schema_version": "2.0",
-  "package": "scf-master-codecrafter",
-  "version": "2.1.0",
-  "display_name": "SCF Master CodeCrafter",
-  "description": "Plugin CORE-CRAFT per il master-layer SCF. Fornisce design, code routing, code UI e contesto MCP sopra spark-base.",
-  "author": "Nemex81",
-  "min_engine_version": "2.1.0",
-  "dependencies": ["spark-base"],
-  "conflicts": [],
-  "file_ownership_policy": "error",
-  "changelog_path": ".github/changelogs/scf-master-codecrafter.md",
-  "files": [
-    ".github/AGENTS-master.md",
-    ".github/changelogs/scf-master-codecrafter.md",
-    ".github/agents/Agent-Code.md",
-    ".github/agents/Agent-Design.md",
-    ".github/agents/Agent-CodeRouter.md",
-    ".github/agents/Agent-CodeUI.md",
-    ".github/instructions/mcp-context.instructions.md",
-    ".github/skills/clean-architecture/SKILL.md",
-    ".github/skills/clean-architecture/templates/project-structure.md",
-    ".github/skills/code-routing.skill.md",
-    ".github/skills/docs-manager/SKILL.md",
-    ".github/skills/docs-manager/templates/readme-template.md",
-    ".github/skills/docs-manager/templates/adr-template.md"
-  ]
+    "schema_version":  "2.1",
+    "package":  "scf-master-codecrafter",
+    "version":  "2.1.0",
+    "display_name":  "SCF Master CodeCrafter",
+    "description":  "Plugin CORE-CRAFT per il master-layer SCF. Fornisce design, code routing, code UI e contesto MCP sopra spark-base.",
+    "author":  "Nemex81",
+    "min_engine_version":  "2.1.0",
+    "dependencies":  [
+                         "spark-base"
+                     ],
+    "conflicts":  [
+
+                  ],
+    "file_ownership_policy":  "error",
+    "changelog_path":  ".github/changelogs/scf-master-codecrafter.md",
+    "files":  [
+                  ".github/agents/Agent-Code.md",
+                  ".github/agents/Agent-CodeRouter.md",
+                  ".github/agents/Agent-CodeUI.md",
+                  ".github/agents/Agent-Design.md",
+                  ".github/AGENTS-master.md",
+                  ".github/changelogs/scf-master-codecrafter.md",
+                  ".github/copilot-instructions.md",
+                  ".github/instructions/mcp-context.instructions.md",
+                  ".github/skills/clean-architecture/SKILL.md",
+                  ".github/skills/clean-architecture/templates/project-structure.md",
+                  ".github/skills/code-routing.skill.md",
+                  ".github/skills/docs-manager/SKILL.md",
+                  ".github/skills/docs-manager/templates/adr-template.md",
+                  ".github/skills/docs-manager/templates/readme-template.md"
+              ],
+    "files_metadata":  [
+                           {
+                               "path":  ".github/agents/Agent-Code.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "agent",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/agents/Agent-CodeRouter.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "agent",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/agents/Agent-CodeUI.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "agent",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/agents/Agent-Design.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "agent",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/AGENTS-master.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "config",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/changelogs/scf-master-codecrafter.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "config",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/copilot-instructions.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "config",
+                               "scf_merge_strategy":  "merge_sections",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/instructions/mcp-context.instructions.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "instruction",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/clean-architecture/SKILL.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/clean-architecture/templates/project-structure.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/code-routing.skill.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/docs-manager/SKILL.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/docs-manager/templates/adr-template.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           },
+                           {
+                               "path":  ".github/skills/docs-manager/templates/readme-template.md",
+                               "scf_owner":  "scf-master-codecrafter",
+                               "scf_version":  "2.1.0",
+                               "scf_file_role":  "skill",
+                               "scf_merge_strategy":  "replace",
+                               "scf_merge_priority":  20,
+                               "scf_protected":  false
+                           }
+                       ]
 }

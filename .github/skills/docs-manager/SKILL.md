@@ -1,7 +1,13 @@
 ---
-spark: true
-name: docs-manager
 description: Gestisce aggiornamento coordinato di API, architecture, changelog e link interni.
+scf_protected: false
+scf_file_role: "skill"
+name: docs-manager
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # docs-manager

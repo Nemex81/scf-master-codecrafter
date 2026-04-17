@@ -1,10 +1,14 @@
 ---
-agent: agent
 description: >
-  Modifica la postura operativa globale degli agenti aggiornando il
-  campo personality in project-profile.md. Per override temporaneo di
-  sessione non usare questo prompt: dichiara il profilo desiderato
-  direttamente in chat.
+scf_protected: false
+scf_file_role: "prompt"
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+sessione non usare questo prompt: dichiara il profilo desiderato
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # Personality

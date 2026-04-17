@@ -1,11 +1,17 @@
 ---
-spark: true
+scf_merge_strategy: "replace"
 name: Agent-Welcome
 version: 1.0.0
-description: Agente di setup del profilo progetto e onboarding dei componenti framework.
-model: ['GPT-5 mini (copilot)']
-layer: master
+scf_owner: "scf-master-codecrafter"
 role: executor
+scf_version: "2.1.0"
+scf_file_role: "agent"
+layer: master
+scf_merge_priority: 20
+scf_protected: false
+spark: true
+model: ['GPT-5 mini (copilot)']
+description: Agente di setup del profilo progetto e onboarding dei componenti framework.
 ---
 
 # Agent-Welcome

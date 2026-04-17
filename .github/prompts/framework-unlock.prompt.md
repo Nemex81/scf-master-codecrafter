@@ -1,6 +1,13 @@
 ---
-agent: agent
 description: Sblocca temporaneamente i path protetti del framework per una modifica dichiarata e circoscritta.
+scf_protected: false
+scf_file_role: "prompt"
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # Framework Unlock

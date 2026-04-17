@@ -1,13 +1,19 @@
 ---
-spark: true
+scf_merge_strategy: "replace"
 name: Agent-CodeRouter
+fallback: Agent-Research
 version: 1.0.0
-description: Dispatcher per implementazione. Instrada richieste code e code-ui verso agenti plugin.
-model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.3-Codex (copilot)']
-layer: master
+scf_owner: "scf-master-codecrafter"
 role: dispatcher
 delegates_to_capabilities: [code, code-ui, routing]
-fallback: Agent-Research
+scf_file_role: "agent"
+scf_version: "2.1.0"
+layer: master
+scf_merge_priority: 20
+scf_protected: false
+spark: true
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.3-Codex (copilot)']
+description: Dispatcher per implementazione. Instrada richieste code e code-ui verso agenti plugin.
 ---
 
 # Agent-CodeRouter

@@ -1,12 +1,18 @@
 ---
-spark: true
+scf_owner: "scf-master-codecrafter"
 name: Agent-Code
-version: 2.1.0
-description: Executor generico per implementazione codice e fallback del layer master.
-model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.3-Codex (copilot)']
-layer: master
-role: executor
+scf_protected: false
 capabilities: [code, implementation, fallback]
+version: 2.1.0
+scf_version: "2.1.0"
+scf_file_role: "agent"
+layer: master
+scf_merge_strategy: "replace"
+scf_merge_priority: 20
+role: executor
+spark: true
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5.3-Codex (copilot)']
+description: Executor generico per implementazione codice e fallback del layer master.
 ---
 
 # Agent-Code

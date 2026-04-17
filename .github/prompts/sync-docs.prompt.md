@@ -1,7 +1,13 @@
 ---
-name: Sync Documentazione
 description: >
-  Avvia Agent-Docs per sincronizzare API.md, ARCHITECTURE.md, CHANGELOG.md.
+scf_protected: false
+scf_file_role: "prompt"
+name: Sync Documentazione
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Avvia Agent-Docs per sincronizzare la documentazione dopo i commit recenti.

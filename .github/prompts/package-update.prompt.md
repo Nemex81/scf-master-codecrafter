@@ -1,8 +1,13 @@
 ---
-agent: agent
 description: >
-  Verifica aggiornamenti disponibili per i pacchetti SCF installati,
-  mostra il delta e coordina l'applicazione degli update tramite Agent-Helper.
+scf_protected: false
+scf_file_role: "prompt"
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+agent: agent
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # package-update — Aggiornamento pacchetti SCF

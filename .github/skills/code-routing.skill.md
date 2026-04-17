@@ -1,7 +1,13 @@
 ---
-spark: true
-name: code-routing
 description: Classifica un task di implementazione come UI o non-UI per il dispatcher code router.
+scf_protected: false
+scf_file_role: "skill"
+name: code-routing
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # code-routing

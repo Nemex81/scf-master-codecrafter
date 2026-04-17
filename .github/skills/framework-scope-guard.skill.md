@@ -1,7 +1,13 @@
 ---
-spark: true
-name: framework-scope-guard
 description: Protegge il layer master da richieste fuori scope o non coperte dai plugin installati.
+scf_protected: false
+scf_file_role: "skill"
+name: framework-scope-guard
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # framework-scope-guard

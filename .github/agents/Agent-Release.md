@@ -1,16 +1,18 @@
 ---
-spark: true
+scf_merge_strategy: "replace"
 name: Agent-Release
+scf_protected: false
+scf_owner: "scf-master-codecrafter"
+tools: 
 version: 1.0.0
-description: Agente per versioning, checklist release e preparazione materiali di rilascio.
-model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
+scf_version: "2.1.0"
+scf_file_role: "agent"
 layer: master
+scf_merge_priority: 20
 role: executor
-tools:
-  - runCommand
-  - githubRepo
-  - readFile
-  - changes
+spark: true
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
+description: Agente per versioning, checklist release e preparazione materiali di rilascio.
 ---
 
 # Agent-Release

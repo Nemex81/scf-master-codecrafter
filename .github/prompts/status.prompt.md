@@ -1,7 +1,13 @@
 ---
-name: Status Check
 description: >
-  Mostra lo stato attuale del workflow in corso.
+scf_protected: false
+scf_file_role: "prompt"
+name: Status Check
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 Leggi i seguenti file e produci un report di stato:

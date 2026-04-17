@@ -1,7 +1,13 @@
 ---
-spark: true
-name: project-reset
 description: Checklist di reset contesto a inizio sessione per evitare assunzioni stale.
+scf_protected: false
+scf_file_role: "skill"
+name: project-reset
+scf_merge_priority: 20
+scf_merge_strategy: "replace"
+scf_version: "2.1.0"
+spark: true
+scf_owner: "scf-master-codecrafter"
 ---
 
 # project-reset

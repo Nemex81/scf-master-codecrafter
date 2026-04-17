@@ -1,15 +1,18 @@
 ---
-spark: true
+scf_merge_strategy: "replace"
 name: Agent-FrameworkDocs
+scf_protected: false
+scf_owner: "scf-master-codecrafter"
+tools: 
 version: 1.0.0
-description: Agente esclusivo per documentazione e changelog del framework sotto .github/**.
-model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
+scf_version: "2.1.0"
+scf_file_role: "agent"
 layer: master
+scf_merge_priority: 20
 role: executor
-tools:
-  - readFile
-  - editFiles
-  - changes
+spark: true
+model: ['Claude Sonnet 4.6 (copilot)', 'GPT-5 mini (copilot)']
+description: Agente esclusivo per documentazione e changelog del framework sotto .github/**.
 ---
 
 # Agent-FrameworkDocs
