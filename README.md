@@ -1,41 +1,37 @@
 # SCF Master CodeCrafter
 
-**Layer base trasversale per tutti i plugin linguaggio-specifici del SPARK Code Framework.**
+Plugin CORE-CRAFT del SPARK Code Framework.
 
-## Cosè
+## Cos'e
 
-`scf-master-codecrafter` è il layer fondamentale del SPARK Code Framework (SCF). Non è un plugin generico: è il coordinatore centrale che gestisce tutto ciò che è indipendente dal linguaggio di programmazione.
+`scf-master-codecrafter` non e piu il layer base del framework. Il layer fondazionale e `spark-base`.
+Questo pacchetto aggiunge sopra `spark-base` i componenti trasversali di design e code routing:
 
-Ogni plugin linguaggio-specifico (es. `scf-pycode-crafter` per Python) dichiara `scf-master-codecrafter` come dipendenza obbligatoria.
+- `Agent-Code`
+- `Agent-Design`
+- `Agent-CodeRouter`
+- `Agent-CodeUI`
+- `mcp-context.instructions.md`
+- skill `clean-architecture`, `code-routing`, `docs-manager`
+- `AGENTS-master.md`, changelog e sezione condivisa di `copilot-instructions.md`
 
-## Cosa fa
+## Perimetro attuale
 
-- **Orchestrazione autonoma E2E** — `Agent-Orchestrator` v2.0 con `execution_mode`, `confidence_threshold` e loop autonomo
-- **Routing dinamico** — agenti dispatcher che delegano ai plugin specializzati o fanno fallback via `Agent-Research`
-- **Git e Release** — `Agent-Git` e `Agent-Release` trasversali a qualsiasi linguaggio
-- **Documentazione framework** — binario separato dal binario progetto
-- **Runtime state** — `.github/runtime/orchestrator-state.json` esposto via MCP tools del motore
+Il manifest corrente del pacchetto e `package-manifest.json` schema `2.1`, versione `2.1.0`, con 14 file gestiti:
 
-## Architettura
+- 4 agenti
+- 1 instruction
+- 6 skill
+- 3 file di configurazione condivisi
 
-```text
-scf-master-codecrafter (questo package)
-├── Agenti esecutori (7): Orchestrator, Git, Helper, Release, FrameworkDocs, Welcome, Research
-├── Agenti dispatcher (6): CodeRouter, Analyze, Design, Plan, Docs, CodeUI
-├── Skill trasversali (24)
-├── Instructions trasversali (6)
-└── Runtime state: .github/runtime/orchestrator-state.json
+## Dipendenze
 
-plugin linguaggio (es. scf-pycode-crafter)
-├── dependencies: ["scf-master-codecrafter"]
-├── Agenti specializzati con frontmatter capabilities
-└── AGENTS-{plugin-id}.md (scoperto da engine via glob)
-```
+Questo pacchetto richiede:
 
-## Requisiti
+- `spark-base`
+- `spark-framework-engine >= 2.1.0`
 
-- **SPARK Framework Engine** ≥ `1.9.0`
-- **Python** ≥ 3.10 (per il motore MCP)
+I plugin linguaggio-specifici, come `scf-pycode-crafter`, dipendono da questo layer ridotto.
 
 ## Installazione
 
@@ -43,13 +39,13 @@ plugin linguaggio (es. scf-pycode-crafter)
 scf_install_package("scf-master-codecrafter")
 ```
 
-Se stai installando un plugin linguaggio-specifico, installa prima questo package o lascia che il motore risolva la dipendenza automaticamente.
+Il motore deve trovare prima `spark-base` installato, oppure risolvere la dipendenza dichiarata nel manifest.
 
 ## Plugin compatibili
 
-| Package              | Versione | Linguaggio |
-| -------------------- | -------- | ---------- |
-| `scf-pycode-crafter` | ≥ 2.0.0  | Python     |
+| Package | Versione | Linguaggio |
+| --- | --- | --- |
+| `scf-pycode-crafter` | `2.0.1` | Python |
 
 ## Maintainer
 
