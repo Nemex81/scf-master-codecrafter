@@ -1,7 +1,7 @@
 ---
 spark: true
 scf_file_role: "config"
-scf_version: "2.1.0"
+scf_version: "2.2.0"
 scf_merge_strategy: "replace"
 scf_protected: false
 scf_owner: "scf-master-codecrafter"
@@ -9,6 +9,19 @@ scf_merge_priority: 20
 ---
 
 # Changelog — scf-master-codecrafter
+
+## [2.2.0] - 2026-04-22
+
+### Changed
+
+- Skill `clean-architecture` e `docs-manager` sostituite da stub leggeri che delegano il contenuto al motore SPARK via resource MCP `engine-skills://clean-architecture` e `engine-skills://docs-manager`. Elenco in `engine_provided_skills` nel `package-manifest.json`.
+- Rimossi dal payload i subfolder `skills/clean-architecture/templates/` e `skills/docs-manager/templates/`: ora hostati integralmente dal motore.
+- `min_engine_version` alzato a `2.4.0` (dipendenza dai namespace `engine-*://` introdotti dall'engine 2.4.0).
+
+### Unchanged (contestuali)
+
+- `skills/code-routing.skill.md` rimane file fisico: dipende dagli agenti installati nel workspace.
+- `instructions/mcp-context.instructions.md` rimane file fisico: dipende dai tool MCP disponibili nell'installazione utente.
 
 ## [2.1.0] - 2026-04-15
 
