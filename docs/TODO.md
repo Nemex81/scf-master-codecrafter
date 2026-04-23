@@ -89,3 +89,7 @@
   - Piano: `docs/PIANO-RAZIONALIZZAZIONE-SPARK-OWNERSHIP-CLEANUP-2026-04-23.md`
   - TODO: `docs/todolist/TODO-RAZIONALIZZAZIONE-SPARK-OWNERSHIP-CLEANUP-2026-04-23.md`
   - Stato: audit completato, esecuzione bloccata da `framework_edit_mode: false` su `.github/**` e dalle conferme git per push/tag
+- [ ] Razionalizzazione agenti comuni 2026-04-23
+  - Piano: `docs/PIANO-RAZIONALIZZAZIONE-AGENTI-COMUNI-2026-04-23.md`
+  - TODO: `docs/todolist/TODO-RAZIONALIZZAZIONE-AGENTI-COMUNI-2026-04-23.md`
+  - Stato: piano originale non validato; serve riconciliazione semantica prima di rimozione/rinomina e `#framework-unlock` prima delle scritture su `.github/**`
