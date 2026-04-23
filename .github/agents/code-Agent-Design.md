@@ -1,13 +1,13 @@
 ---
 scf_merge_strategy: "replace"
-name: Agent-Design
+name: code-Agent-Design
 fallback: Agent-Research
 version: 1.0.0
 scf_owner: "scf-master-codecrafter"
 role: dispatcher
 delegates_to_capabilities: [design]
 scf_file_role: "agent"
-scf_version: "2.1.0"
+scf_version: "2.2.0"
 layer: master
 scf_merge_priority: 20
 scf_protected: false
@@ -16,7 +16,7 @@ model: ['Claude Sonnet 4.6 (copilot)', 'GPT-4o-mini (copilot)']
 description: Dispatcher per decisioni architetturali e documenti di design con fallback research.
 ---
 
-# Agent-Design
+# code-Agent-Design
 
 Dispatcher per decisioni architetturali e documenti di design.
 

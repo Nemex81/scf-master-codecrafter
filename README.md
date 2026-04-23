@@ -7,10 +7,10 @@ Plugin CORE-CRAFT del SPARK Code Framework.
 `scf-master-codecrafter` non e piu il layer base del framework. Il layer fondazionale e `spark-base`.
 Questo pacchetto aggiunge sopra `spark-base` i componenti trasversali di design e code routing:
 
-- `Agent-Code`
-- `Agent-Design`
-- `Agent-CodeRouter`
-- `Agent-CodeUI`
+- `code-Agent-Code`
+- `code-Agent-Design`
+- `code-Agent-CodeRouter`
+- `code-Agent-CodeUI`
 - `mcp-context.instructions.md`
 - skill `clean-architecture`, `code-routing`, `docs-manager`
 - `AGENTS-master.md`, changelog e sezione condivisa di `copilot-instructions.md`

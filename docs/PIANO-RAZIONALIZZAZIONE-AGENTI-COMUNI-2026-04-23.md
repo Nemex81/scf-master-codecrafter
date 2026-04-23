@@ -51,10 +51,10 @@ FAIL
 
 ### Agenti esclusivi master da preservare e poi rinominare
 
-- `Agent-Code.md`
-- `Agent-CodeRouter.md`
-- `Agent-CodeUI.md`
-- `Agent-Design.md`
+- `code-Agent-Code.md`
+- `code-Agent-CodeRouter.md`
+- `code-Agent-CodeUI.md`
+- `code-Agent-Design.md`
 
 ### File master da aggiornare se la migrazione prosegue
 

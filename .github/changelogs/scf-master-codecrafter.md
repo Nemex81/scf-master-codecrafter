@@ -18,6 +18,12 @@ scf_merge_priority: 20
 
 - Le skill `clean-architecture` e `docs-manager` restano dipendenze cross-package fornite da `scf-master-codecrafter`; i riferimenti consumer in `spark-base` sono stati riallineati ai path reali basati su directory.
 
+### Changed
+
+- Rimossi dal repository del master gli 11 agenti condivisi ora forniti dal layer `spark-base`, mantenendo nel pacchetto solo gli agenti esclusivi legati alla programmazione.
+- Rinominati gli agenti esclusivi del master con prefisso `code-` (`code-Agent-Code`, `code-Agent-CodeRouter`, `code-Agent-CodeUI`, `code-Agent-Design`).
+- Aggiornati indice agenti, copilot instructions e manifest del pacchetto per riflettere la nuova ownership degli agenti condivisi e il nuovo naming degli agenti esclusivi.
+
 ## [2.2.0] - 2026-04-22
 
 ### Changed
@@ -35,11 +41,11 @@ scf_merge_priority: 20
 
 ### Added
 
-- Ripristinato `Agent-Code` come executor generico del layer master per coprire richieste `code` quando non esiste un plugin linguaggio-specifico.
+- Ripristinato `code-Agent-Code` come executor generico del layer master per coprire richieste `code` quando non esiste un plugin linguaggio-specifico.
 
 ### Changed
 
-- `Agent-CodeRouter` usa ora `Agent-Code` come fallback implementativo del master prima di ricorrere a `Agent-Research`.
+- `code-Agent-CodeRouter` usa ora `code-Agent-Code` come fallback implementativo del master prima di ricorrere a `Agent-Research`.
 
 ### Compatibility
 

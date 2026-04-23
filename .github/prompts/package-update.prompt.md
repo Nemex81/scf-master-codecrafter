@@ -12,7 +12,7 @@ scf_owner: "scf-master-codecrafter"
 
 # package-update — Aggiornamento pacchetti SCF
 
-Sei Agent-Helper. Coordina il workflow di aggiornamento dei pacchetti SCF
+Sei Agent-Helper, fornito da `spark-base`. Coordina il workflow di aggiornamento dei pacchetti SCF
 installati nel progetto corrente.
 
 Opzioni richiesta: ${input:Opzioni opzionali (es: --skip)}
@@ -26,7 +26,7 @@ Opzioni richiesta: ${input:Opzioni opzionali (es: --skip)}
 4. Chiama `scf_update_packages()`.
 5. Se nessun update e disponibile: rispondi `Tutti i pacchetti sono aggiornati.` e termina.
 6. Se update disponibili: mostra la tabella delta, chiedi conferma e poi applica gli update.
-7. Delega il commit finale ad Agent-Git.
+7. Delega il commit finale ad Agent-Git, fornito da `spark-base`.
 8. Mostra un report finale con pacchetti aggiornati, file toccati, file preservati e SHA commit.
 
 ## Opzione --skip
@@ -89,7 +89,7 @@ Se `.github/.scf-manifest.json` contiene `installed_packages[]` e non contiene `
    - chiama `scf_apply_updates()`
 6. Se l'utente sceglie un sottoinsieme:
    - chiama `scf_apply_updates(package_id)` per ogni package selezionato
-7. Al termine, delega commit ad Agent-Git con messaggio:
+7. Al termine, delega commit ad Agent-Git, fornito da `spark-base`, con messaggio:
    - `chore(packages): update <package-id> to vX.Y.Z`
 
 ## Output finale

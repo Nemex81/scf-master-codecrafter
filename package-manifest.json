@@ -15,10 +15,10 @@
     "file_ownership_policy":  "error",
     "changelog_path":  ".github/changelogs/scf-master-codecrafter.md",
     "files":  [
-                  ".github/agents/Agent-Code.md",
-                  ".github/agents/Agent-CodeRouter.md",
-                  ".github/agents/Agent-CodeUI.md",
-                  ".github/agents/Agent-Design.md",
+                  ".github/agents/code-Agent-Code.md",
+                  ".github/agents/code-Agent-CodeRouter.md",
+                  ".github/agents/code-Agent-CodeUI.md",
+                  ".github/agents/code-Agent-Design.md",
                   ".github/AGENTS-master.md",
                   ".github/changelogs/scf-master-codecrafter.md",
                   ".github/copilot-instructions.md",
@@ -29,7 +29,7 @@
               ],
     "files_metadata":  [
                            {
-                               "path":  ".github/agents/Agent-Code.md",
+                               "path":  ".github/agents/code-Agent-Code.md",
                                "scf_owner":  "scf-master-codecrafter",
                                "scf_version":  "2.2.0",
                                "scf_file_role":  "agent",
@@ -38,7 +38,7 @@
                                "scf_protected":  false
                            },
                            {
-                               "path":  ".github/agents/Agent-CodeRouter.md",
+                               "path":  ".github/agents/code-Agent-CodeRouter.md",
                                "scf_owner":  "scf-master-codecrafter",
                                "scf_version":  "2.2.0",
                                "scf_file_role":  "agent",
@@ -47,7 +47,7 @@
                                "scf_protected":  false
                            },
                            {
-                               "path":  ".github/agents/Agent-CodeUI.md",
+                               "path":  ".github/agents/code-Agent-CodeUI.md",
                                "scf_owner":  "scf-master-codecrafter",
                                "scf_version":  "2.2.0",
                                "scf_file_role":  "agent",
@@ -56,7 +56,7 @@
                                "scf_protected":  false
                            },
                            {
-                               "path":  ".github/agents/Agent-Design.md",
+                               "path":  ".github/agents/code-Agent-Design.md",
                                "scf_owner":  "scf-master-codecrafter",
                                "scf_version":  "2.2.0",
                                "scf_file_role":  "agent",

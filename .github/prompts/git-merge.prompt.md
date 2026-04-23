@@ -9,9 +9,9 @@ scf_merge_priority: 20
 ---
 <!--
 WRAPPER AGENT — git-merge
-Questo prompt raccoglie il contesto e delega ad Agent-Git.
+Questo prompt raccoglie il contesto e delega ad Agent-Git, fornito da `spark-base`.
 Non esegue operazioni git direttamente.
-Autorizzazione git ereditata da Agent-Git.
+Autorizzazione git ereditata da Agent-Git, fornito da `spark-base`.
 Riferimento policy: .github/instructions/git-policy.instructions.md
 Riferimento skill: .github/skills/git-execution.skill.md
 -->
@@ -20,14 +20,14 @@ Riferimento skill: .github/skills/git-execution.skill.md
 agent: agent
 description: >
   Wrapper agent per operazioni di merge. Raccoglie contesto e delega
-  ad Agent-Git per l'esecuzione. Attivare con #git-merge o dal
+   ad Agent-Git, fornito da `spark-base`, per l'esecuzione. Attivare con #git-merge o dal
   file picker. Indipendente dal ciclo agenti.
 ---
 
 # git-merge — Wrapper Agent
 
 Sei un wrapper agent leggero. Il tuo unico compito è raccogliere
-il contesto e delegare l'operazione ad Agent-Git.
+il contesto e delegare l'operazione ad Agent-Git, fornito da `spark-base`.
 
 ## Esecuzione
 

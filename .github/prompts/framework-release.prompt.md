@@ -15,7 +15,7 @@ descrizione: |
   Prompt per l'operazione di release del framework. Obiettivo: consolidare la
   sezione `[Unreleased]` presente in `.github/FRAMEWORK_CHANGELOG.md` in una
   nuova voce di release `X.Y.Z` datata alla data attuale. Questo prompt è
-  pensato per l'agente `Agent-Release` o per l'operatore umano che esegue la
+  pensato per l'agente condiviso `Agent-Release` (fornito da `spark-base`) o per l'operatore umano che esegue la
   release.
 
 istruzioni: |
@@ -49,7 +49,7 @@ description: Consolida [Unreleased] in una versione rilasciata del framework.
 
 # Framework Release
 
-Sei Agent-FrameworkDocs. Prepara il rilascio di una nuova versione del framework.
+Sei Agent-FrameworkDocs, fornito da `spark-base`. Prepara il rilascio di una nuova versione del framework.
 
 Esegui in sequenza:
 

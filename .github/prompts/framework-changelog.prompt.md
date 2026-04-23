@@ -12,7 +12,7 @@ scf_owner: "scf-master-codecrafter"
 
 # Framework Changelog Update
 
-Sei Agent-FrameworkDocs. Aggiungi una voce al changelog del framework.
+Sei Agent-FrameworkDocs, fornito da `spark-base`. Aggiungi una voce al changelog del framework.
 
 Esegui in sequenza:
 

@@ -77,9 +77,9 @@
 ## Correzione split spark-base/master - 2026-04-15
 
 - [x] Audit completo di engine, registry, base, master e plugin Python
-- [x] Verificata la regressione di `Agent-Code` nel layer master
+- [x] Verificata la regressione di `code-Agent-Code` nel layer master
 - [x] Verificata l'assenza di `spark-guide` nel package `spark-base`
-- [x] Reintrodurre `Agent-Code` come executor generico del master
+- [x] Reintrodurre `code-Agent-Code` come executor generico del master
 - [x] Promuovere `spark-guide` a file gestito da `spark-base`
 - [x] Allineare motore, manifest e registry per ownership e versioni
 
@@ -92,4 +92,4 @@
 - [ ] Razionalizzazione agenti comuni 2026-04-23
   - Piano: `docs/PIANO-RAZIONALIZZAZIONE-AGENTI-COMUNI-2026-04-23.md`
   - TODO: `docs/todolist/TODO-RAZIONALIZZAZIONE-AGENTI-COMUNI-2026-04-23.md`
-  - Stato: piano originale non validato; serve riconciliazione semantica prima di rimozione/rinomina e `#framework-unlock` prima delle scritture su `.github/**`
+  - Stato: Fase A e Fase B completate localmente; restano solo eventuale commit locale via Agent-Git e nessun push senza conferma `PUSH`

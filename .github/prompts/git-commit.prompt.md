@@ -9,7 +9,7 @@ scf_merge_priority: 20
 ---
 <!--
 WRAPPER AGENT — git-commit
-Questo prompt raccoglie il contesto e delega ad Agent-Git per l'esecuzione.
+Questo prompt raccoglie il contesto e delega ad Agent-Git, fornito da `spark-base`, per l'esecuzione.
 Se Agent-Git non è disponibile, esecuzione diretta via script Python come fallback.
 Parametro di modalità: richiesta inline all'utente al passo 1 (PUSH o NO).
 Riferimento policy: .github/instructions/git-policy.instructions.md
@@ -20,7 +20,7 @@ Riferimento skill: .github/skills/git-execution.skill.md
 agent: agent
 description: >
   Wrapper agent per operazioni di commit. Chiede se vuoi commit+push o solo
-  commit. Raccoglie contesto e delega ad Agent-Git per l'esecuzione.
+  commit. Raccoglie contesto e delega ad Agent-Git, fornito da `spark-base`, per l'esecuzione.
   Se Agent-Git non è disponibile, esegue fallback diretto via script Python.
   Attivare con #git-commit o dal file picker. Indipendente dal ciclo agenti.
 ---
@@ -28,7 +28,7 @@ description: >
 # git-commit — Wrapper Agent
 
 Sei un wrapper agent leggero. Il tuo unico compito è raccogliere
-il contesto necessario e delegare l'operazione ad Agent-Git.
+il contesto necessario e delegare l'operazione ad Agent-Git, fornito da `spark-base`.
 Se Agent-Git non è disponibile nel contesto VS Code corrente,
 attiva un fallback configurato per eseguire lo script direttamente
 via `run_in_terminal`.
@@ -41,9 +41,9 @@ via `run_in_terminal`.
    - Altrimenti: imposta modalità = SOLO_COMMIT
 
 2. Se modalità = SOLO_COMMIT: procedi con Agent-Git OP-2
-   Se modalità = COMMIT_E_PUSH: procedi con Agent-Git OP-2 + push
+  Se modalità = COMMIT_E_PUSH: procedi con Agent-Git OP-2 + push
 
-   Invoca Agent-Git passando esattamente questo prompt:
+  Invoca Agent-Git passando esattamente questo prompt:
 
    Se modalità = SOLO_COMMIT:
    ```
@@ -83,5 +83,5 @@ via `run_in_terminal`.
      Esecuzione diretta tramite script."
 
 4. Non duplicare logica già presente in Agent-Git.
-   Fallback su script diretto preserva la policy: Agent-Git rimane il canale
+  Fallback su script diretto preserva la policy: Agent-Git rimane il canale
    primario autorizzato, esecuzione script è il fallback condizionale.

@@ -12,9 +12,10 @@ scf_merge_priority: 20
 
 ## Contesto
 
-Questo pacchetto fornisce il layer master del framework SCF.
-Definisce agenti trasversali, dispatcher, skill comuni e regole operative
-riutilizzabili da tutti i plugin linguaggio-specifici.
+Questo pacchetto fornisce il layer master programmatico del framework SCF.
+Definisce gli agenti esclusivi di implementazione, design e routing del layer
+master, insieme a skill contestuali e regole operative riutilizzabili dai
+plugin linguaggio-specifici sopra `spark-base`.
 
 ## Regole base
 
@@ -43,8 +44,9 @@ Quando il task tocca tool MCP o codice engine, mantieni separati `stdout` e `std
 
 ## Routing degli agenti
 
-- Agenti executor master: orchestrazione, git, release, framework docs, onboarding, ricerca.
-- Agenti dispatcher master: analyze, design, plan, docs, code-ui, code-router.
+- Agenti condivisi forniti da `spark-base`: orchestrazione, git, release, framework docs, onboarding, ricerca, analyze, plan, docs e validate.
+- Agente executor master: `code-Agent-Code`.
+- Agenti dispatcher master: `code-Agent-Design`, `code-Agent-CodeUI`, `code-Agent-CodeRouter`.
 - Agenti plugin: dichiarano `plugin`, `capabilities`, `languages` e vengono scoperti via `AGENTS-{plugin-id}.md`.
 
 ## Output

@@ -12,7 +12,7 @@ scf_owner: "scf-master-codecrafter"
 
 # Framework Update
 
-Sei Agent-FrameworkDocs. Un agente o un prompt file è stato aggiunto o modificato.
+Sei Agent-FrameworkDocs, fornito da `spark-base`. Un agente o un prompt file è stato aggiunto o modificato.
 
 Esegui in sequenza:
 

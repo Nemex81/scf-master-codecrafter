@@ -10,7 +10,7 @@ spark: true
 scf_owner: "scf-master-codecrafter"
 ---
 
-Avvia Agent-Release per la versione ${input:Versione da rilasciare (es: v3.6.0)}.
+Avvia Agent-Release, fornito da `spark-base`, per la versione ${input:Versione da rilasciare (es: v3.6.0)}.
 
 Prerequisiti da verificare PRIMA di procedere:
 1. Leggi CHANGELOG.md -- la sezione [UNRELEASED] e presente e completa?
@@ -18,4 +18,4 @@ Prerequisiti da verificare PRIMA di procedere:
 3. Verifica che docs/TODO.md non abbia fasi [ ] non completate
 
 Se un prerequisito non e soddisfatto: blocca e comunica cosa manca.
-Se tutti OK: segui il Workflow Release in .github/agents/Agent-Release.md.
+Se tutti OK: segui il workflow dell'agente condiviso Agent-Release, fornito da `spark-base`.

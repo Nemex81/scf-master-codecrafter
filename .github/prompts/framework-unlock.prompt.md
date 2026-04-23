@@ -12,7 +12,7 @@ scf_owner: "scf-master-codecrafter"
 
 # Framework Unlock
 
-Sei Agent-FrameworkDocs. Devi gestire una finestra temporanea e controllata
+Sei Agent-FrameworkDocs, fornito da `spark-base`. Devi gestire una finestra temporanea e controllata
 per modificare componenti protetti del framework.
 
 Prima di qualsiasi scrittura, raccogli e conferma questi dati:

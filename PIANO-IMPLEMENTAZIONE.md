@@ -176,7 +176,7 @@ async def scf_update_runtime_state(patch: dict) -> dict:
     """Aggiorna campi selezionati di orchestrator-state.json (merge parziale).
     Accetta solo i campi da modificare. Aggiorna last_updated automaticamente.
     Crea .github/runtime/ se non esiste.
-    Esempio: {"current_phase": "CODE", "confidence": 0.92, "current_agent": "Agent-Code"}
+    Esempio: {"current_phase": "CODE", "confidence": 0.92, "current_agent": "code-Agent-Code"}
     Restituisce lo stato completo post-aggiornamento.
     """
     return inventory.set_orchestrator_state(patch)
@@ -251,23 +251,23 @@ Correzione validata: per le skill nel formato cartella standard richieste dal ma
 
 | File da creare nel master | Fonte primaria (tabboz) | Cosa rimuovere/adattare |
 |---|---|---|
-| `Agent-Orchestrator.md` | `.github/agents/Agent-Orchestrator.md` (11.5 KB) | Nulla da rimuovere — già trasversale. Aggiungere frontmatter: `execution_mode`, `confidence_threshold`, `checkpoints`, `runtime_state_tool`, `runtime_update_tool`. Impostare `layer: master`, `version: 2.0.0` |
-| `Agent-Git.md` | `.github/agents/Agent-Git.md` (11.6 KB) | Rimuovere riferimenti a comandi Python-specific se presenti |
-| `Agent-Helper.md` | `.github/agents/Agent-Helper.md` | Rimuovere riferimenti a stack Python |
-| `Agent-Release.md` | `.github/agents/Agent-Release.md` | Rimuovere step Python-specific (es. `pip`, `pypi`, `wheel`) |
-| `Agent-FrameworkDocs.md` | `.github/agents/Agent-FrameworkDocs.md` | Nulla — già trasversale |
-| `Agent-Welcome.md` | `.github/agents/Agent-Welcome.md` (16.5 KB) | Rimuovere istruzioni setup Python-specific, generalizzare il linguaggio |
-| `Agent-CodeRouter.md` (dispatcher) | `.github/agents/Agent-CodeRouter.md` | Aggiungere frontmatter `role: dispatcher`, `delegates_to_capabilities`, `fallback: Agent-Research` |
-| `Agent-Analyze.md` (dispatcher) | `.github/agents/Agent-Analyze.md` | Aggiungere frontmatter dispatcher, rimuovere riferimenti Python-specific |
-| `Agent-Design.md` (dispatcher) | `.github/agents/Agent-Design.md` | Aggiungere frontmatter dispatcher |
-| `Agent-Plan.md` (dispatcher) | `.github/agents/Agent-Plan.md` | Aggiungere frontmatter dispatcher |
-| `Agent-Docs.md` (dispatcher) | `.github/agents/Agent-Docs.md` | Aggiungere frontmatter dispatcher, rimuovere riferimenti `pytest`/`ruff`/`mypy` |
-| `Agent-CodeUI.md` (dispatcher) | `.github/agents/Agent-CodeUI.md` | Aggiungere frontmatter dispatcher |
+| `Agent-Orchestrator.md` | agente condiviso fornito da `spark-base` | Nulla da rimuovere — già trasversale. Aggiungere frontmatter: `execution_mode`, `confidence_threshold`, `checkpoints`, `runtime_state_tool`, `runtime_update_tool`. Impostare `layer: master`, `version: 2.0.0` |
+| `Agent-Git.md` | agente condiviso fornito da `spark-base` | Rimuovere riferimenti a comandi Python-specific se presenti |
+| `Agent-Helper.md` | agente condiviso fornito da `spark-base` | Rimuovere riferimenti a stack Python |
+| `Agent-Release.md` | agente condiviso fornito da `spark-base` | Rimuovere step Python-specific (es. `pip`, `pypi`, `wheel`) |
+| `Agent-FrameworkDocs.md` | agente condiviso fornito da `spark-base` | Nulla — già trasversale |
+| `Agent-Welcome.md` | agente condiviso fornito da `spark-base` | Rimuovere istruzioni setup Python-specific, generalizzare il linguaggio |
+| `code-Agent-CodeRouter.md` (dispatcher) | `.github/agents/code-Agent-CodeRouter.md` | Aggiungere frontmatter `role: dispatcher`, `delegates_to_capabilities`, `fallback: Agent-Research` |
+| `Agent-Analyze.md` (dispatcher) | agente condiviso fornito da `spark-base` | Aggiungere frontmatter dispatcher, rimuovere riferimenti Python-specific |
+| `code-Agent-Design.md` (dispatcher) | `.github/agents/code-Agent-Design.md` | Aggiungere frontmatter dispatcher |
+| `Agent-Plan.md` (dispatcher) | agente condiviso fornito da `spark-base` | Aggiungere frontmatter dispatcher |
+| `Agent-Docs.md` (dispatcher) | agente condiviso fornito da `spark-base` | Aggiungere frontmatter dispatcher, rimuovere riferimenti `pytest`/`ruff`/`mypy` |
+| `code-Agent-CodeUI.md` (dispatcher) | `.github/agents/code-Agent-CodeUI.md` | Aggiungere frontmatter dispatcher |
 | `copilot-instructions.md` | `.github/copilot-instructions.md` di tabboz | Rimuovere tutto ciò che cita Python, pytest, ruff, mypy, type hints |
 | `project-profile.md` | `.github/project-profile.md` di tabboz | Azzerare: `active_plugins: []`, `framework_version: ""`, `initialized: false` — è un template |
 | `AGENTS.md` | `.github/AGENTS.md` di tabboz | Rimuovere agenti Python-specific; aggiungere sezione "Plugin Agents" vuota e sezione "MCP Runtime Tools" |
 
-> **Nota**: `Agent-Validate.md` e `Agent-Code.md` di tabboz **NON vanno nel master** — sono esecutori linguaggio-specifico. Restano come base per `py-Agent-Code.md` e `py-Agent-Validate.md` in `scf-pycode-crafter` (Fase C).
+> **Nota**: `Agent-Validate.md` e `code-Agent-Code.md` di tabboz **NON vanno nel master** — sono esecutori linguaggio-specifico. Restano come base per `py-Agent-Code.md` e `py-Agent-Validate.md` in `scf-pycode-crafter` (Fase C).
 
 ### B1. File di progetto root
 
@@ -337,15 +337,15 @@ runtime_update_tool: scf_update_runtime_state
 ```
 Corpo: flusso E2E con loop autonomo, gestione confidence, retry max 2,
 post-step analysis, riduzione checkpoint a 3.
-Fonte primaria: `.github/agents/Agent-Orchestrator.md` in `tabboz-simulator-202` (11.5 KB — versione completa).
+Fonte primaria: agente condiviso `Agent-Orchestrator`, oggi fornito da `spark-base` (origine storica: `tabboz-simulator-202`).
 Aggiungere i nuovi campi frontmatter; il corpo è già trasversale e non richiede modifiche sostanziali.
 
-**`Agent-Git.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Git.md` (11.6 KB).
-**`Agent-Helper.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Helper.md`.
-**`Agent-Release.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Release.md`, rimuovere step Python-specific.
-**`Agent-FrameworkDocs.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-FrameworkDocs.md`.
-**`Agent-Welcome.md`** — fonte primaria: `tabboz-simulator-202/.github/agents/Agent-Welcome.md` (16.5 KB), generalizzare sezioni Python-specific.
-**`Agent-Research.md`** — NUOVO, nessuna base in nessun repo esistente, creare da zero:
+**`Agent-Git.md`** — oggi agente condiviso fornito da `spark-base`.
+**`Agent-Helper.md`** — oggi agente condiviso fornito da `spark-base`.
+**`Agent-Release.md`** — oggi agente condiviso fornito da `spark-base`; rimuovere step Python-specific.
+**`Agent-FrameworkDocs.md`** — oggi agente condiviso fornito da `spark-base`.
+**`Agent-Welcome.md`** — oggi agente condiviso fornito da `spark-base`, generalizzare sezioni Python-specific.
+**`Agent-Research.md`** — oggi agente condiviso fornito da `spark-base`; in questa fase storica era previsto come nuovo file.
 ```yaml
 ---
 spark: true
@@ -386,12 +386,12 @@ Meccanismo dispatcher (corpo comune per tutti):
 4. SE non esiste → chiama `Agent-Research` → usa il brief prodotto come contesto
 
 Capabilities per ciascun dispatcher:
-- `Agent-CodeRouter` — `delegates_to_capabilities: [code, code-ui, routing]`
+- `code-Agent-CodeRouter` — `delegates_to_capabilities: [code, code-ui, routing]`
 - `Agent-Analyze` — `delegates_to_capabilities: [analyze]`
-- `Agent-Design` — `delegates_to_capabilities: [design]`
+- `code-Agent-Design` — `delegates_to_capabilities: [design]`
 - `Agent-Plan` — `delegates_to_capabilities: [plan]`
 - `Agent-Docs` — `delegates_to_capabilities: [docs]`
-- `Agent-CodeUI` — `delegates_to_capabilities: [code-ui, ui]`
+- `code-Agent-CodeUI` — `delegates_to_capabilities: [code-ui, ui]`
 
 ### B4. Instructions (6 file in `.github/instructions/`)
 

@@ -13,7 +13,7 @@ scf_merge_strategy: "replace"
 
 Agenti CORE-CRAFT forniti da `scf-master-codecrafter`.
 
-- Agent-Code — executor — code, implementation, fallback
-- Agent-Design — dispatcher — design
-- Agent-CodeRouter — dispatcher — code, code-ui, routing
-- Agent-CodeUI — dispatcher — code-ui, ui
+- code-Agent-Code — executor — code, implementation, fallback
+- code-Agent-Design — dispatcher — design
+- code-Agent-CodeRouter — dispatcher — code, code-ui, routing
+- code-Agent-CodeUI — dispatcher — code-ui, ui
