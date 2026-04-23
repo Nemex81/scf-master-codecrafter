@@ -12,7 +12,7 @@ WRAPPER AGENT — git-merge
 Questo prompt raccoglie il contesto e delega ad Agent-Git, fornito da `spark-base`.
 Non esegue operazioni git direttamente.
 Autorizzazione git ereditata da Agent-Git, fornito da `spark-base`.
-Riferimento policy: .github/instructions/git-policy.instructions.md
+Riferimento policy: policy git condivisa fornita da `spark-base`
 Riferimento skill: .github/skills/git-execution.skill.md
 -->
 

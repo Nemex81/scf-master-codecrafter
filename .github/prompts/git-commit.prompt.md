@@ -12,7 +12,7 @@ WRAPPER AGENT — git-commit
 Questo prompt raccoglie il contesto e delega ad Agent-Git, fornito da `spark-base`, per l'esecuzione.
 Se Agent-Git non è disponibile, esecuzione diretta via script Python come fallback.
 Parametro di modalità: richiesta inline all'utente al passo 1 (PUSH o NO).
-Riferimento policy: .github/instructions/git-policy.instructions.md
+Riferimento policy: policy git condivisa fornita da `spark-base`
 Riferimento skill: .github/skills/git-execution.skill.md
 -->
 

@@ -24,6 +24,7 @@ scf_merge_priority: 20
 - Rinominati gli agenti esclusivi del master con prefisso `code-` (`code-Agent-Code`, `code-Agent-CodeRouter`, `code-Agent-CodeUI`, `code-Agent-Design`).
 - Aggiornati indice agenti, copilot instructions e manifest del pacchetto per riflettere la nuova ownership degli agenti condivisi e il nuovo naming degli agenti esclusivi.
 - Razionalizzati i prompt condivisi: i wrapper e i prompt framework con logica specifica restano nel master, mentre i prompt workflow duplicati sono rimossi in favore delle definizioni condivise fornite da `spark-base`.
+- Rimosse dal pacchetto master le instruction condivise duplicate (`framework-guard`, `git-policy`, `model-policy`, `personality`, `verbosity`, `workflow-standard`), mantenendo solo le instruction esclusive del layer master.
 
 ## [2.2.0] - 2026-04-22
 
