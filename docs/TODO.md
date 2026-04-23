@@ -82,3 +82,10 @@
 - [x] Reintrodurre `Agent-Code` come executor generico del master
 - [x] Promuovere `spark-guide` a file gestito da `spark-base`
 - [x] Allineare motore, manifest e registry per ownership e versioni
+
+## Task attivi
+
+- [ ] Razionalizzazione SPARK 2026-04-23
+  - Piano: `docs/PIANO-RAZIONALIZZAZIONE-SPARK-OWNERSHIP-CLEANUP-2026-04-23.md`
+  - TODO: `docs/todolist/TODO-RAZIONALIZZAZIONE-SPARK-OWNERSHIP-CLEANUP-2026-04-23.md`
+  - Stato: audit completato, esecuzione bloccata da `framework_edit_mode: false` su `.github/**` e dalle conferme git per push/tag

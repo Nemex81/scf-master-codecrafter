@@ -10,6 +10,14 @@ scf_merge_priority: 20
 
 # Changelog — scf-master-codecrafter
 
+<!-- markdownlint-disable MD024 -->
+
+## [Unreleased]
+
+### Cross-package alignment
+
+- Le skill `clean-architecture` e `docs-manager` restano dipendenze cross-package fornite da `scf-master-codecrafter`; i riferimenti consumer in `spark-base` sono stati riallineati ai path reali basati su directory.
+
 ## [2.2.0] - 2026-04-22
 
 ### Changed
