@@ -16,28 +16,18 @@ Usano variabili di input con sintassi `${input:label}`.
 
 ## Prompt presenti
 
-- `project-setup.prompt.md` — setup iniziale framework
-  (nessun input — flusso guidato Agent-Welcome OP-1)
-- `project-update.prompt.md` — aggiornamento profilo progetto
-  (input opzionale — help automatico se vuoto)
-- `init.prompt.md` — avvia nuovo task, suggerisce agente appropriato
-- `start.prompt.md` — riprendi codifica dal primo task non completato in TODO.md
-- `status.prompt.md` — mostra stato attuale del workflow in corso
-- `sync-docs.prompt.md` — avvia Agent-Docs per sync documentazione
-- `release.prompt.md` — avvia Agent-Release per versioning e build
 - `help.prompt.md` — spiega come funziona un agente specifico
-- `git-commit.prompt.md` — wrapper agent commit (input opzionale PUSH per commit + push immediato)
-- `git-merge.prompt.md` — wrapper agent merge (delega ad Agent-Git)
-- `orchestrate.prompt.md` — ciclo E2E completo tramite Agent-Orchestrator
+- `git-commit.prompt.md` — wrapper agent commit (delega ad Agent-Git condiviso)
+- `git-merge.prompt.md` — wrapper agent merge (delega ad Agent-Git condiviso)
 - `framework-update.prompt.md` — aggiorna AGENTS.md e copilot-instructions.md
-- `framework-changelog.prompt.md` — aggiunge voce a FRAMEWORK_CHANGELOG.md
 - `framework-release.prompt.md` — consolida [Unreleased] in una versione rilasciata
 - `framework-unlock.prompt.md` — sblocca temporaneamente i path protetti del framework
+- `package-update.prompt.md` — aggiorna i pacchetti SCF installati nel workspace
 
 ## Note
 
-- I prompt `project-setup` e `project-update` delegano ad Agent-Welcome.
 - I prompt `git-commit` e `git-merge` sono wrapper agent e delegano ad Agent-Git.
 - Il prompt `framework-unlock` abilita una finestra controllata di modifica
   dei componenti protetti del framework.
+- I prompt framework e workflow condivisi rimossi da questa cartella sono ora forniti dal layer `spark-base`.
 - Documento di riferimento completo: [AGENTS.md](../AGENTS.md) sezione "Prompt Files".
