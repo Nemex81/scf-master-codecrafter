@@ -17,7 +17,7 @@ Questo pacchetto aggiunge sopra `spark-base` i componenti trasversali di design 
 
 ## Perimetro attuale
 
-Il manifest corrente del pacchetto e `package-manifest.json` schema `2.1`, versione `2.1.0`, con 14 file gestiti:
+Il manifest corrente del pacchetto e `package-manifest.json` schema `2.1`, versione `2.2.0`, con 19 file gestiti:
 
 - 4 agenti
 - 1 instruction
@@ -29,7 +29,7 @@ Il manifest corrente del pacchetto e `package-manifest.json` schema `2.1`, versi
 Questo pacchetto richiede:
 
 - `spark-base`
-- `spark-framework-engine >= 2.1.0`
+- `spark-framework-engine >= 2.4.0`
 
 I plugin linguaggio-specifici, come `scf-pycode-crafter`, dipendono da questo layer ridotto.
 
