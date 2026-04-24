@@ -26,9 +26,11 @@ plugin linguaggio-specifici sopra `spark-base`.
 - Per operazioni git, usa Agent-Git o proponi i comandi senza eseguirli direttamente.
 - Per task su codice Python, test Python o contesto MCP, applica anche `.github/instructions/python.instructions.md`, `.github/instructions/tests.instructions.md` e `.github/instructions/mcp-context.instructions.md` quando pertinenti.
 
+Queste instruction Python sono disponibili solo se il pacchetto `scf-pycode-crafter` e installato nel workspace.
+
 ## Runtime MCP richiesto
 
-Questo layer richiede `spark-framework-engine >= 2.1.0`; i tool e le resource runtime seguenti sono stati introdotti a partire da `1.5.0`:
+Questo layer richiede `spark-framework-engine >= 2.4.0`; i tool e le resource runtime seguenti sono stati introdotti a partire da `1.5.0`:
 - `scf_get_runtime_state()`
 - `scf_update_runtime_state(patch)`
 - `scf://runtime-state`

@@ -36,9 +36,9 @@ scf_merge_priority: 20
 Questa sezione viene popolata dai plugin installati tramite file `AGENTS-{plugin-id}.md`.
 Il motore aggrega i file disponibili tramite `scf://agents-index`.
 
-## MCP Runtime Tools (engine v2.1.0 — feature introdotte tra v1.5.0 e v1.6.0)
+## MCP Runtime Tools (engine v2.4.0 — feature introdotte tra v1.5.0 e v1.6.0)
 
-I tool seguenti sono disponibili e operativi nel motore corrente (v2.1.0).
+I tool seguenti sono disponibili e operativi nel motore corrente (v2.4.0).
 
 ### Runtime State (da v1.5.0)
 

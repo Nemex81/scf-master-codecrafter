@@ -10,6 +10,12 @@ scf_protected: false
 
 # Framework Changelog
 
+## [2026-04-24]
+
+### Framework unlock
+
+- Framework unlock usato per riallineare i riferimenti documentali all'engine `spark-framework-engine >= 2.4.0` nei file protetti `copilot-instructions.md` e `AGENTS.md`, aggiungendo anche la nota che vincola `python.instructions.md` e `tests.instructions.md` alla presenza di `scf-pycode-crafter` nel workspace.
+
 ## [2026-04-23]
 
 ### Cross-package alignment
