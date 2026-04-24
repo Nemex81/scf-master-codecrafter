@@ -1,7 +1,7 @@
 ---
 spark: true
 scf_file_role: "config"
-scf_version: "2.1.0"
+scf_version: "2.2.0"
 scf_merge_strategy: "merge_sections"
 scf_protected: false
 scf_owner: "scf-master-codecrafter"
