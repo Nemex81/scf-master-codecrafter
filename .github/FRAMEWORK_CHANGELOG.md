@@ -12,6 +12,10 @@ scf_protected: false
 
 ## [2026-04-24]
 
+### MSI cleanup
+
+- Rimossi i duplicati legacy `-MSI` residui sotto `.github/` del pacchetto master, mantenendo come canonici solo i file attivi allineati al manifest e agli indici correnti.
+
 ### Framework unlock
 
 - Framework unlock usato per riallineare i riferimenti documentali all'engine `spark-framework-engine >= 2.4.0` nei file protetti `copilot-instructions.md` e `AGENTS.md`, aggiungendo anche la nota che vincola `python.instructions.md` e `tests.instructions.md` alla presenza di `scf-pycode-crafter` nel workspace.
