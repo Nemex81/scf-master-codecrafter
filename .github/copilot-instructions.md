@@ -1,7 +1,7 @@
 ---
 spark: true
 scf_file_role: "config"
-scf_version: "2.2.0"
+scf_version: "2.3.0"
 scf_merge_strategy: "merge_sections"
 scf_protected: false
 scf_owner: "scf-master-codecrafter"
@@ -21,9 +21,11 @@ plugin linguaggio-specifici sopra `spark-base`.
 
 - Leggi sempre `.github/project-profile.md` prima di assumere stack o architettura.
 - Usa `.github/AGENTS.md` come indice canonico degli agenti installati.
-- Se una capability richiesta non e coperta da plugin attivi, delega ad Agent-Research.
+- Se una capability richiesta non è coperta da plugin attivi, usa `scf://agents-index`
+	per verificare gli agenti disponibili, poi delega all'agente ricerca installato.
 - Non modificare `.github/runtime/` tramite sistemi di manifest o ownership package.
-- Per operazioni git, usa Agent-Git o proponi i comandi senza eseguirli direttamente.
+- Per operazioni git, proponi i comandi senza eseguirli direttamente;
+	delega all'agente git installato tramite `scf://agents-index`.
 - Per task su codice Python, test Python o contesto MCP, applica anche `.github/instructions/python.instructions.md`, `.github/instructions/tests.instructions.md` e `.github/instructions/mcp-context.instructions.md` quando pertinenti.
 
 Queste instruction Python sono disponibili solo se il pacchetto `scf-pycode-crafter` e installato nel workspace.
@@ -46,10 +48,16 @@ Quando il task tocca tool MCP o codice engine, mantieni separati `stdout` e `std
 
 ## Routing degli agenti
 
-- Agenti condivisi forniti da `spark-base`: orchestrazione, git, release, framework docs, onboarding, ricerca, analyze, plan, docs e validate.
-- Agente executor master: `code-Agent-Code`.
+- Agenti condivisi da `spark-base`: scoperti tramite `scf://agents-index`.
+	Coprono orchestrazione, git, release, framework docs, onboarding, ricerca,
+	analyze, plan, docs e validate.
+- Agente executor master: `code-Agent-Code` — implementazione codice.
 - Agenti dispatcher master: `code-Agent-Design`, `code-Agent-CodeUI`, `code-Agent-CodeRouter`.
-- Agenti plugin: dichiarano `plugin`, `capabilities`, `languages` e vengono scoperti via `AGENTS-{plugin-id}.md`.
+- Agenti plugin (language-specific): dichiarano `plugin`, `capabilities`, `languages`
+	e vengono scoperti via `AGENTS-{plugin-id}.md` o tramite `scf://agents-index`.
+
+Per verificare quali agenti sono effettivamente installati nel workspace corrente:
+→ resource `scf://agents-index`
 
 ## Output
 
