@@ -27,6 +27,12 @@ scf_merge_priority: 20
 - Rimosse dal pacchetto master le instruction condivise duplicate (`framework-guard`, `git-policy`, `model-policy`, `personality`, `verbosity`, `workflow-standard`), mantenendo solo le instruction esclusive del layer master.
 - Aggiunti al `package-manifest.json` i prompt condivisi che restano fisicamente distribuiti nel pacchetto (`framework-release`, `framework-unlock`, `framework-update`, `git-commit`, `git-merge`, `help`, `package-update`).
 
+## [2.4.1] - 2026-04-28
+
+### Changed
+
+- Bump patch di compatibilita: `min_engine_version` aggiornata a `3.1.0` mantenendo invariato il comportamento funzionale del pacchetto.
+
 ## [2.2.0] - 2026-04-22
 
 ### Changed
