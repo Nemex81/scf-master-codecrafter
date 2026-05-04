@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "package": "scf-master-codecrafter",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "display_name": "SCF Master CodeCrafter",
   "description": "Plugin CORE-CRAFT per il master-layer SCF. Fornisce design, code routing, code UI e contesto MCP sopra spark-base.",
   "author": "Nemex81",
@@ -21,6 +21,9 @@
   ],
   "mcp_resources": {
     "agents": [
+      "Agent-CodeRouter",
+      "Agent-CodeUI",
+      "Agent-Design",
       "code-Agent-Code",
       "code-Agent-CodeRouter",
       "code-Agent-CodeUI",
@@ -45,6 +48,9 @@
     ]
   },
   "files": [
+    ".github/agents/Agent-CodeRouter.md",
+    ".github/agents/Agent-CodeUI.md",
+    ".github/agents/Agent-Design.md",
     ".github/agents/code-Agent-Code.md",
     ".github/agents/code-Agent-CodeRouter.md",
     ".github/agents/code-Agent-CodeUI.md",
@@ -66,6 +72,33 @@
     ".github/skills/docs-manager/SKILL.md"
   ],
   "files_metadata": [
+    {
+      "path": ".github/agents/Agent-CodeRouter.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.1",
+      "scf_file_role": "agent",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/agents/Agent-CodeUI.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.1",
+      "scf_file_role": "agent",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/agents/Agent-Design.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.1",
+      "scf_file_role": "agent",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
     {
       "path": ".github/agents/code-Agent-Code.md",
       "scf_owner": "scf-master-codecrafter",
