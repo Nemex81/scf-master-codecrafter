@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "package": "scf-master-codecrafter",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "display_name": "SCF Master CodeCrafter",
   "description": "Plugin CORE-CRAFT per il master-layer SCF. Fornisce design, code routing, code UI e contesto MCP sopra spark-base.",
   "author": "Nemex81",
@@ -161,6 +161,78 @@
       "scf_owner": "scf-master-codecrafter",
       "scf_version": "engine-managed",
       "scf_file_role": "skill",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/framework-release.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/framework-unlock.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/framework-update.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/git-commit.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/git-merge.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/help.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/package-update.prompt.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "prompt",
+      "scf_merge_strategy": "replace",
+      "scf_merge_priority": 20,
+      "scf_protected": false
+    },
+    {
+      "path": ".github/prompts/README.md",
+      "scf_owner": "scf-master-codecrafter",
+      "scf_version": "2.5.0",
+      "scf_file_role": "config",
       "scf_merge_strategy": "replace",
       "scf_merge_priority": 20,
       "scf_protected": false
