@@ -6,7 +6,7 @@ role: support
 visibility: internal
 invoked_by: [code-Agent-Analyze, code-Agent-Design, code-Agent-Plan, code-Agent-CodeUI, code-Agent-Docs]
 capabilities: [language-research, best-practice-synthesis, knowledge-cache]
-scf_version: "1.1"
+scf_version: "2.6.0"
 ---
 
 # code-Agent-Research
@@ -117,3 +117,16 @@ La directory `research-cache/` non deve essere tracciata dal manifest SCF
 - Il brief non viene incluso nel FRAMEWORK_CHANGELOG.
 
 ---
+
+## Regole operative
+
+- NON produrre output privo del frontmatter con `fallback: true`.
+- NON omettere il blocco warning nel corpo del brief.
+- NON salvare il brief fuori da `.github/runtime/research-cache/`.
+- NON essere invocato per linguaggi per cui esiste già un plugin SCF
+  nel registry.
+- SE la ricerca produce risultati incerti, dichiararlo con nota
+  `[UNCERTAIN]` nella sezione "Errori Frequenti".
+
+Il testo della sezione `## Output — Context Brief` con l'avviso
+FALLBACK espanso rimane invariato (non comprimere a etichetta breve).
