@@ -26,6 +26,7 @@ scf_merge_priority: 20
 - Razionalizzati i prompt condivisi: i wrapper e i prompt framework con logica specifica restano nel master, mentre i prompt workflow duplicati sono rimossi in favore delle definizioni condivise fornite da `spark-base`.
 - Rimosse dal pacchetto master le instruction condivise duplicate (`framework-guard`, `git-policy`, `model-policy`, `personality`, `verbosity`, `workflow-standard`), mantenendo solo le instruction esclusive del layer master.
 - Aggiunti al `package-manifest.json` i prompt condivisi che restano fisicamente distribuiti nel pacchetto (`framework-release`, `framework-unlock`, `framework-update`, `git-commit`, `git-merge`, `help`, `package-update`).
+- bump version 2.6.1 → 2.7.0; allineamento README a manifest reale
 
 ## [2.4.1] - 2026-04-28
 
